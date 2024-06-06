@@ -1,5 +1,4 @@
-# HATS
-Hybrid Abstract Transitory State
+# HATS - Hybrid Abstract Transitory Structure
 
 ## Objective 
 Prove that a 'quantum' or 'abstract' super state can exist as a 'transient' abstract state.
