@@ -35,9 +35,9 @@ class Color(Enum):
     @staticmethod
     def fromState(state):
         if state.A > 0 and state.B > 0:
-            return Color.BLACK_FILL
-        elif state.A < 0 and state.B < 0:
             return Color.WHITE_FILL
+        elif state.A < 0 and state.B < 0:
+            return Color.BLACK_FILL
         elif state.A > 0 and state.B < 0:
             return Color.RED
         elif state.A < 0 and state.B > 0:

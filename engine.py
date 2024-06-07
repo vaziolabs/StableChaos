@@ -62,4 +62,4 @@ class Engine:
             pygame.display.flip()
 
             # Cap the frame rate
-            self.clock.tick(10)
+            self.clock.tick(60)
