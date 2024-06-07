@@ -13,6 +13,26 @@ def OppositeNode(name):
     elif name == "D":
         return "A"
 
+def LeftNeighbor(name):
+    if name == "A":
+        return "B"
+    elif name == "B":
+        return "C"
+    elif name == "C":
+        return "D"
+    elif name == "D":
+        return "A"
+    
+def RightNeighbor(name):
+    if name == "A":
+        return "D"
+    elif name == "B":
+        return "A"
+    elif name == "C":
+        return "B"
+    elif name == "D":
+        return "C"
+
 class Node:
     def __init__(self, position, color):
         self.position = position
@@ -43,41 +63,52 @@ class Node:
             # If we have the opposite node, we want to do the opposite of what it does
             if self.name is OppositeNode(node.name):
                 self.state.repel(node.state)
+                return
+            
+            # If we have a double 0, we want to do nothing
+            if self.randomA == 0 and self.randomB == 0:
+                return
+
+            if self.randomA > 0 and self.randomB > 0:
+                # If we have a double positive, we want to attempt to overtake or be like our neighbor
+                if node.state.A < 1:
+                    self.state.addA()
+                if node.state.B < 1:
+                    self.state.addB()
+                return
+            elif self.randomA < 0 and self.randomB < 0:
+                # If we have a double negative, we want to attempt to move away from our neighbor
+                if node.state.A > -1:
+                    self.state.minusA()
+                if node.state.B > -1:
+                    self.state.minusB()
+                return
+            
             # Otherwise, we want to introduce some randomness to the node corresponding to our neighbor
-            else: # TODO: Add a Gradient here
-                if self.randomA > 0 and self.randomB > 0:
-                    # If we have a double positive, we want to attempt to overtake or be like our neighbor
+            # TODO: Add a Gradient here
+            if node.name is LeftNeighbor(self.name):
+                # If we have a mix of positive and negative, we want to attempt to be like our neighbor in one way or another
+                if self.randomA > 0: # If Random A is A Positive, we want to do LIKE our left neighbor in the A direction
                     if node.state.A < 1:
-                        self.state.addA()
-                    if node.state.B < 1:
-                        self.state.addB()
-                elif self.randomA < 0 and self.randomB < 0:
-                    # If we have a double negative, we want to attempt to move away from our neighbor
-                    if node.state.A > -1:
                         self.state.minusA()
                     if node.state.B > -1:
                         self.state.minusB()
-                else:
-                    # If we have a mix of positive and negative, we want to attempt to be like our neighbor in one way
-                    if self.randomA > 0:
-                        if node.state.A < 1:
-                            self.state.addA()
-                        if node.state.B > -1:
-                            self.state.minusB()
-                    elif self.randomB > 0:
-                        if node.state.B < 1:
-                            self.state.addB()
-                        if node.state.A > -1:
-                            self.state.minusA()
-                    elif self.randomA < 0: # and if we are under the threshold we want to do the inverse
-                        if node.state.A > -1:
-                            self.state.minusA()
-                        if node.state.B < 1:
-                            self.state.addB()
-                    elif self.randomB < 0:
-                        if node.state.B > -1:
-                            self.state.minusB()
-                        if node.state.A < 1:
-                            self.state.addA()
-                # And if we have 0's we just want to maintain our current state
-                # The problem with this model is that we could potentially do more than one operation, and we really want to calculate ALL possible operations before we do any of them
+                elif self.randomA < 0: 
+                    if node.state.A > -1:
+                        self.state.addA()
+                    if node.state.B < 1:
+                        self.state.addB()
+                return
+            
+            if node.name is RightNeighbor(self.name):
+                if self.randomB > 0: # If Random B is B Positive, we want to do LIKE our right neighbor in the B direction
+                    if node.state.B > -1:
+                        self.state.addB()
+                    if node.state.A < 1:
+                        self.state.addA()
+                elif self.randomB < 0:
+                    if node.state.B < 1:
+                        self.state.minusB()
+                    if node.state.A > -1:
+                        self.state.minusA()
+                return

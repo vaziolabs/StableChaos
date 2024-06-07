@@ -18,12 +18,19 @@ class State:
         self.B -= 1 if self.B > -1 else -1
     
     def repel(self, node):
-        if node.A > self.A:
+        if node.A == 1 and node.B == 1:
+            self.A = -1
+            self.B = -1
+        elif node.A == -1 and node.B == -1:
+            self.A = 1
+            self.B = 1
+
+        if node.A > 0:
             self.minusA()
-        else:
+        elif node.A < 0:
             self.addA()
         
-        if node.B > self.B:
+        if node.B < 0:
             self.minusB()
-        else:
+        elif node.B > 0:
             self.addB()
