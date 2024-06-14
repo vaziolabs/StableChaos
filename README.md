@@ -1,4 +1,4 @@
-# HATS - Hybrid Abstract Transitory Subsystem
+# Stable Chaos Model
 
 ## Objective 
 Prove that a 'quantum' or 'abstract' super state can exist as a 'transient' abstract state.
