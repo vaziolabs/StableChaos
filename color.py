@@ -14,11 +14,15 @@ class Color(Enum):
         return self.value if isinstance(self.value, tuple) else self
 
     @staticmethod
-    def lerp(self, other, t):
-        value = other.val() if isinstance(other, Color) else other
-        r = self.value[0] + (value[0] - self.value[0]) * t
-        g = self.value[1] + (value[1] - self.value[1]) * t
-        b = self.value[2] + (value[2] - self.value[2]) * t
+    def lerp(color_A, color_B, t):
+        t = (t + 1.0) / 2.0 # This value is originally -1 to 1
+
+        color_A = color_A.value if isinstance(color_A, Color) else color_A
+        color_B = color_B.value if isinstance(color_B, Color) else color_B
+
+        r = int(color_A[0] + (color_B[0] - color_A[0]) * t)
+        g = int(color_A[1] + (color_B[1] - color_A[1]) * t)
+        b = int(color_A[2] + (color_B[2] - color_A[2]) * t)
         return (r, g, b)
     
     @staticmethod
@@ -34,13 +38,6 @@ class Color(Enum):
         
     @staticmethod
     def fromState(state):
-        if state.A > 0 and state.B > 0:
-            return Color.WHITE_FILL
-        elif state.A < 0 and state.B < 0:
-            return Color.BLACK_FILL
-        elif state.A > 0 and state.B < 0:
-            return Color.RED
-        elif state.A < 0 and state.B > 0:
-            return Color.BLUE
-        else:
-            return Color.PURPLE
+        A_Color = Color.lerp(Color.WHITE_FILL, Color.BLUE, state.A)
+        B_Color = Color.lerp(Color.BLACK_FILL, Color.RED, state.B)
+        return Color.lerp(A_Color, B_Color, (state.A + state.B) / 2.0)

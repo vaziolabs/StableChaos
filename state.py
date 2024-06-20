@@ -6,31 +6,28 @@ class State:
         self.B = B
 
     def addA(self):
-        self.A += 1 if self.A < 1 else 1
+        temp_A = self.A + .0987
+        self.A = temp_A if temp_A < 1.0 else 1.0
     
     def addB(self):
-        self.B += 1 if self.B < 1 else 1
-    
+        temp_B = self.B + .0987
+        self.B = temp_B if temp_B < 1.0 else 1.0
+
     def minusA(self):
-        self.A -= 1 if self.A > -1 else -1
+        temp_A = self.A - .0987
+        self.A = temp_A if temp_A > -1.0 else -1.0
 
     def minusB(self):
-        self.B -= 1 if self.B > -1 else -1
+        temp_B = self.B - .0987
+        self.B = temp_B if temp_B > -1.0 else -1.0
     
     def repel(self, node):
-        if node.A == 1 and node.B == 1:
-            self.A = -1
-            self.B = -1
-        elif node.A == -1 and node.B == -1:
-            self.A = 1
-            self.B = 1
-
-        if node.A > 0:
+        if node.A > self.A:
             self.minusA()
-        elif node.A < 0:
+        elif node.A < self.A:
             self.addA()
         
-        if node.B < 0:
+        if node.B < self.B:
             self.minusB()
-        elif node.B > 0:
+        elif node.B > self.B:
             self.addB()
