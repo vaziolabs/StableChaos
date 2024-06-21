@@ -12,7 +12,7 @@ resolution = lambda phase: int(sample_frequency / phase)
 
 class Transceiver:
     def __init__(self, idx=0,threshold=0.0):
-        print("Transceiver initialized")
+        print(" - Transceiver initialized")
         self.omega = 2 * math.pi / sample_frequency
         self.phase = (0.0, 0.0)
         self.theta = 90.0
@@ -33,8 +33,10 @@ class Transceiver:
     async def resonate(self):
         self.resolve()
 
-        print("Beginning resonance")
-        print("theta::", self.theta, ", thrsh::", self.threshold, ", recpt::", self.reception)
+        print(" > Beginning resonance:\t"
+                f"theta::{self.theta:.5f}\t"
+                f"thrsh::{self.threshold:.5f}\t"
+                f"recpt::{self.reception:.5f}\t")
         # If we are positive,
         if self.theta >= 0: 
             # If our threshold is less than our theta, 

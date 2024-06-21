@@ -16,7 +16,13 @@ class Tranception:
             for i in range(4) \
                 for j in range(1, 4)]
     
+
     async def induce(self):
+        print("Evoker Inducing Tranception")
+        print("")
+        print(" - creating reflections")
         reflections = [asyncio.create_task(self.reflectors[0].incept())]
-        print("Inducing Tranception")
+        reflections += [asyncio.create_task(self.reflectors[0].snd(self.reflectors[i])) for i in range(1, 4)]
+        print(" - reflections created. awaiting...")
+        print("")
         return await asyncio.gather(*reflections)
