@@ -1,6 +1,15 @@
 import asyncio
 from tranception import Tranception
 
+# TODO: 
+#       Graph single node - single phase.. 
+#       Scale to multiple nodes simultaneously
+#       Color Code the nodes via the Engine
+#       Build Path and Particle System
+#       Add Gravity/Induction Cross Analysis
+#       Abstract the Transceiver functions away from the Node, and into Transmission
+#       Integrate with Nova and risc-v via SKIFT
+
 def main():
     print(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print(" ~ Tranception ~ (Cognitive Computing)")
@@ -15,6 +24,7 @@ def main():
     
     print("")
     asyncio.run(evokation.induce())
+
 
 
     # asyncio.create_task(node_list[0].rcv(440))
