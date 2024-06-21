@@ -2,7 +2,7 @@ from transceiver import Transceiver
 
 import asyncio
 
-sim_count = 4
+sim_count = 440
 
 class Node(Transceiver):
     def __init__(self, idx):
