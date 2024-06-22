@@ -1,7 +1,10 @@
 # HATS - Hybrid Abstract Transitory State
+(unstable, in development)
 
-An attempt to create a highly scalable abstract type that can have infinite transitory states.
+### Intent 
+An attempt to create a highly scalable abstract type that can have infinite transitory states, and self-defining relationships.
 
+### Description
 The core of this system has multiple components, but a single function.
  - Tranception:
     To naturally define rules that allow for a given set of nodes to transmit and receive, at scale, across an infinitely scalable system of resonators reflecting back at one another.
@@ -11,14 +14,14 @@ The core of this system has multiple components, but a single function.
     
     This degree of Freedom is 2-dimensional but can be intrinsically observed as Theta presently defined as atan2(sin, cos). Our angles are derived from the threshold which trails the resonance, which allows for cyclic observance over any delta.
 
-Todos:
- - [ ] implement a dynamic ability to define theta externally
- - [ ] merge Stable Chaos Model for self stabilization amidst chaos
- - [ ] stabilize and scale the transceiver model to ensure functional integrity
- - [ ] integrate the graphics engine to represent communication between nodes
- - [ ] integrate a particle like system to represent data tranception between nodes
+### Usage:
+ - The `Stable Chaos Model` can be ran with `python main.py`, and signifies a network of 4 nodes attempting to follow and oppose itself.
+ - The `Tranception` model can be ran with `python main.py`, and simply outputs single timestep values from a given set of inputs. This diagram is far from complete.
+
+### Todos:
+ - [ ] abstract the graphics engine to allow for multiple implemetations
+ - [ ] merge Stable Chaos Model annd Tranception for self stabilization amidst chaos
  - [ ] scale
- - [ ] implement unit tests
  - [ ] build examples
     - [ ] audio resonance
         - [ ] audio theorem metrics for 'harmonic' evaluation
