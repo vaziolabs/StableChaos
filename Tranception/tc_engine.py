@@ -34,5 +34,5 @@ class TCEngine(Engine):
     # This allows for concurrent execution of the tranception processes.
     # This is called every frame of our game loop (60 times per second) ((not 44.1khz!!)) <- This is an entirely different problem
     def activate(self,):
-        asyncio.run(self.instance.realize())
+        asyncio.run(self.instance.actualize())
 
