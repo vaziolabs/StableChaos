@@ -21,7 +21,7 @@ def main():
     dimensionality = Dimensionality.Planar
     
 
-    engine = TCEngine(screen_size, grid_size, dimensionality, configuration)
+    engine = TCEngine(screen_size, grid_size, configuration, dimensionality)
     engine.run(engine.activate)
 
 if __name__ == '__main__':

@@ -11,9 +11,10 @@ class Reflection:
         self.polarity = similance   # This determines if the reflection is similar or opposite
         self.induction = 0.0        # This determines positive or negative flow
         self.interference = 0.0     # This determines constructive or destructive flow
+        self.similance = lambda: "Likeness" if self.polarity else "Opposition"
     
     def __str__(self):
-        return str(f"\tReflection {self.idx}:: \n\t\t\tSimilance: {self.similance} \n\t\t\tInduction: {self.induction} \n\t\t\tInterference: {self.interference}")
+        return str(f"\tReflection {self.idx}:: \n\t\t\tPolarity: {self.similance()} \n\t\t\tInduction: {self.induction} \n\t\t\tInterference: {self.interference}")
     
     def __repr__(self):
         return str(self)
@@ -30,8 +31,6 @@ class Reflector:
 
         for reflection in self.reflections:
             reflector += f"\n\tNeighbor: \n\t{reflection}"
-            similance = "neighbor" if reflection.similance else "opposition"
-            reflector += f"\n\t\tSimilance: {similance}"
         
         return reflector
     

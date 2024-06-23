@@ -11,9 +11,9 @@ sample_frequency = 44100
 # This is the parent class that enacts the tranception process
 #  which is synchronous and asynchronous in nature
 class Tranception:
-    def __init__(self, grid_size, dimensional):
+    def __init__(self, grid_size, dimensional, configuration):
         self.dimensionality = dimensional
-        self.configuration = None
+        self.configuration = configuration  
         self.grid_size = grid_size
         self.reflectors = set()
         self.reflections = set()
@@ -29,7 +29,7 @@ class Tranception:
         # We connect to all neighbors within the bounding box set to the grid size
         # We connect to the neighbors based on 3D coordinates
         # We add toroidal connections to the grid, wrapping around the grid
-    async def realize(self):
+    def realize(self):
         for z in range(self.grid_size):
             for y in range(self.grid_size):
                 for x in range(self.grid_size):
@@ -79,15 +79,13 @@ class Tranception:
                                     self.reflections.add(reflection)
                                     reflector.reflections.add(reflection)
                                     neighbor.reflections.add(reflection)
-                                    
-
-
+    
         for reflector in self.reflectors:
             print(reflector)
 
 
-    def actualize(self):
-        pass
+    async def actualize(self):
+        return
 
     def observe(self):
         pass
