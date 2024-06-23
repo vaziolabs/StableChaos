@@ -1,9 +1,6 @@
 # HATS - Hybrid Abstract Transitory State
 (unstable, in development)
 
-### Intent 
-An attempt to create a highly scalable abstract type that can have infinite transitory states, and self-defining relationships.
-
 ### Description
 The core of this system has multiple components, but a single function.
  - Tranception:

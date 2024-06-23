@@ -1,5 +1,8 @@
 # Tranception Evokation System
 
+### Intent 
+An attempt to create a highly scalable abstract type that can have infinite transitory states, and self-defining relationships.
+
 ### Overview
 The Tranception Evokation System is designed to simulate and manage cognitive processes through the manipulation of oscillatory phases (theta), frequencies (omega), and resolutions. This system leverages transceivers (reflectors) to receive, process, and transmit information, enhancing communication and interaction within the network.
 
