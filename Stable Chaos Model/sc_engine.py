@@ -1,7 +1,8 @@
 from copy import deepcopy
 import pygame
-from pygame.locals import *
-from color import Color
+import sys
+sys.path.append('../')
+from engine import Engine, Color
 
 import sys
 
@@ -10,24 +11,12 @@ def lerp(c_A, c_B, t):
     return int(c_A + (c_B - c_A) * t)
 
 # Define Pygame Engine class
-class Engine:
+class SCEngine(Engine):
     def __init__(self, screen_size, nodes):
-        self.nodes = nodes
-        self.screen_size = screen_size
+        super().__init__(screen_size, nodes)
         self.prev_r = 0
         self.prev_g = 0
         self.prev_b = 0
-
-        # Initialize Pygame
-        pygame.init()
-        
-        # Set the screen size
-        self.screen = pygame.display.set_mode(screen_size)
-        pygame.display.set_caption("Hybrid Abstract Transitory Structure")
-        self.background = pygame.Surface(self.screen.get_size())
-        self.background = self.background.convert()
-        self.background.fill(Color.WHITE_BACKGROUND.val())
-        self.clock = pygame.time.Clock()
             
     def acumen(self):
         init_color = Color.WHITE_FILL.val()
@@ -53,11 +42,6 @@ class Engine:
         return new_rgb
 
 
-    def drawNodes(self):
-        # Draw the nodes
-        for node in self.nodes:
-            node.draw(self.screen)
-
     def calculateNodeValues(self):
         new_nodes = []
 
@@ -68,20 +52,7 @@ class Engine:
 
         self.nodes = new_nodes
 
-    # Main loop
-    def run(self):
-        while True:
-            for event in pygame.event.get():
-                if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
-                    pygame.quit()
-                    sys.exit()
-                # resize
-                if event.type == VIDEORESIZE or (event.type == KEYDOWN and event.key == K_r):
-                    self.screen = pygame.display.set_mode((event.w, event.h), RESIZABLE)
-                    self.background = pygame.Surface(self.screen.get_size())
-                    self.background = self.background.convert()
-                    self.background.fill(Color.WHITE_BACKGROUND.val())
-
+    def cycle(self):
             # Draw the background
             self.screen.blit(self.background, (0, 0))
 
