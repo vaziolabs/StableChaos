@@ -14,13 +14,19 @@ class Tranception:
         self.device = None # TODO: Integrate with Nova
         # Ignore these, they are conceptual
         self.reflectors = [Node(i) for i in range(size)]
-        self.reflect() #punnyhashtags
+        self.realize() 
 
     ## This function simply 'zips' all of our transceivers connections together through the nodes
-    def reflect(self):
-        [self.reflectors[i].connections.add(self.reflectors[(i + j) % 4]) \
+    def realize(self):
+        [self.reflectors[i].connections.add(self.reflectors[(i + j) % self.size]) \
             for i in range(self.size) \
                 for j in range(1, self.size)]
+
+    ## Can we do this for the entire network at once?
+    async def reflect(self): #punnyhashtags
+        return await asyncio.gather(*[self.reflectors[i].snd(self.reflectors[(i + j) % self.size]) \
+            for i in range(self.size) \
+                for j in range(1, self.size)])
 
     # We are using the verbiage 'reflections' here to express the way that all of the 
     # nodes are responding to a single timesteps 'inception' of a signal (440 in this case)
