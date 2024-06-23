@@ -5,12 +5,15 @@ import asyncio
 sample_frequency = 44100
 
 
+        
+
 
 # This is the parent class that enacts the tranception process
 #  which is synchronous and asynchronous in nature
 class Tranception:
-    def __init__(self, grid_size, dimensions):
-        self.configuration = dimensions
+    def __init__(self, grid_size, dimensional):
+        self.dimensionality = dimensional
+        self.configuration = None
         self.grid_size = grid_size
         self.reflectors = set()
         self.reflections = set()
@@ -61,6 +64,7 @@ class Tranception:
                                 for reflector in self.reflectors:
                                     if reflector.idx == neighbor_idx:
                                         neighbor = reflector
+
                                         break
 
                                 # If we have not seen the neighbor, we add it and it's reflection
@@ -70,7 +74,7 @@ class Tranception:
                                     self.reflectors.add(neighbor)
 
                                     # This is where we need to also add a new reflection
-                                    reflection = Reflection(len(self.reflections), reflector, neighbor, reflector.isNeighbor(neighbor.cartesian()))
+                                    reflection = Reflection(len(self.reflections), reflector, neighbor, reflector.isOrthogonal(neighbor.cartesian()))
 
                                     self.reflections.add(reflection)
                                     reflector.reflections.add(reflection)
