@@ -9,25 +9,7 @@ class Node(Transceiver):
         print(" [[ Node", idx, " initialized ]]")
         super().__init__()
         self.idx = idx
-        self.transceivers = set() # Transceivers are the 'nodes' that are connected to the
-
-    async def incept(self, frequency = 440):
-        print(" [ Node Incepted: ", self.idx, " ]")
-        i = sim_count
-        while i > 0:
-            await self.rcv(frequency)
-            print("|> Incepting: ", i)
-            print("theta::", self.theta, ", thrsh::", self.threshold, ", recpt::", self.reception)
-            i -= 1
-
-    async def simulate(self, idx):
-        print(" [ Node Simulated: ] ", self.idx)
-        i = sim_count
-        while i > 0:
-            await self.snd(self.transceivers[idx])
-            print("|> Simulating: ", i)
-            print("theta::", self.theta, ", thrsh::", self.threshold, ", recpt::", self.reception)
-            i -= 1
+        self.connections = set() # Transceivers are the 'nodes' that are connected to the
 
     def __str__(self) -> str:
         return str(self.idx)
@@ -41,9 +23,29 @@ class Node(Transceiver):
         awaiting = await self.resonate()
         print(self.idx, " has resonated at ", self.phase, " with a resulting threshold of ", self.threshold)
         return awaiting
+    
+    ## This Function is purely for testing and simulation purposes to induce the reception of a signal
+    async def incept(self, frequency = 440):
+        print(" [ Node Incepted: ", self.idx, " ]")
+        i = sim_count
+        while i > 0:
+            await self.rcv(frequency)
+            print("|> Incepting: ", i)
+            print("theta::", self.theta, ", thrsh::", self.threshold, ", recpt::", self.reception)
+            i -= 1
 
     async def snd(self, other):
         print("  -[ Node Sending: ", self.theta, " to ", other.idx, " ]")
         self.reception = (self.theta + other.threshold) / 2.0
         await self.resonate()
         return await other.rcv(self.theta)
+    
+    ## This function is purely to simulate the sending of a signal
+    async def simulate(self, idx):
+        print(" [ Node Simulated: ] ", self.idx)
+        i = sim_count
+        while i > 0:
+            await self.snd(self.connections[idx])
+            print("|> Simulating: ", i)
+            print("theta::", self.theta, ", thrsh::", self.threshold, ", recpt::", self.reception)
+            i -= 1
