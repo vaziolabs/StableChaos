@@ -17,6 +17,3 @@ engine = SCEngine((SCREEN_WIDTH, SCREEN_HEIGHT), nodes)
 
 if __name__ == "__main__":
     engine.run(engine.cycle)
-
-
-
