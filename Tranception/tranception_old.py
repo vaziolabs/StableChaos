@@ -9,9 +9,9 @@ sample_frequency = 44100
 class Tranception:
     def __init__(self, size):
         self.size = size
-        self.model = None # We don't know what this looks like 
-        self.tokenizer = None # DONT: This is laughable (at least here)
-        self.device = None # TODO: Integrate with Nova
+        # self.model = None # We don't know what this looks like 
+        # self.tokenizer = None # DONT: This is laughable (at least here)
+        # self.device = None # TODO: Integrate with Nova
         # Ignore these, they are conceptual
         self.reflectors = [Node(i) for i in range(size)]
         self.realize() 
