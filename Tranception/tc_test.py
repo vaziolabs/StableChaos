@@ -15,7 +15,7 @@ def main():
     print(" ~~~~  Tranception dude!  ~~~~~")
 
     engine = TCEngine((1600, 1200))
-    engine.run(print("Running Tranception Engine"))
+    engine.run(engine.activate)
 
 if __name__ == '__main__':
     main()

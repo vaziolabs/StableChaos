@@ -2,8 +2,6 @@ from transceiver import Transceiver
 
 import asyncio
 
-sim_count = 440
-
 class Node(Transceiver):
     def __init__(self, idx):
         print(" [[ Node", idx, " initialized ]]")
@@ -27,7 +25,7 @@ class Node(Transceiver):
     ## This Function is purely for testing and simulation purposes to induce the reception of a signal
     async def incept(self, frequency = 440):
         print(" [ Node Incepted: ", self.idx, " ]")
-        i = sim_count
+        i = frequency
         while i > 0:
             await self.rcv(frequency)
             print("|> Incepting: ", i)
@@ -43,7 +41,7 @@ class Node(Transceiver):
     ## This function is purely to simulate the sending of a signal
     async def simulate(self, idx):
         print(" [ Node Simulated: ] ", self.idx)
-        i = sim_count
+        i = self.resolution(440)
         while i > 0:
             await self.snd(self.connections[idx])
             print("|> Simulating: ", i)
