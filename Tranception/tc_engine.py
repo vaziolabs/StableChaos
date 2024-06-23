@@ -27,9 +27,9 @@ class Dimensionality(Enum):
 
 # This is a wrapper function that interfaces with the game engine through the Engine class
 class TCEngine(Engine):
-    def __init__(self, screen_size, grid_size, configuration, dimensionality):
+    def __init__(self, screen_size, grid_size, dimensionality, configuration):
         super().__init__(screen_size, [])
-        self.instance = Tranception(grid_size, configuration, dimensionality) # Based on Grid Size
+        self.instance = Tranception(grid_size, configuration, dimensionality) # We could abstract away TC_Engine and Tranception into a single class eventually
 
     # This allows for concurrent execution of the tranception processes.
     # This is called every frame of our game loop (60 times per second) ((not 44.1khz!!)) <- This is an entirely different problem

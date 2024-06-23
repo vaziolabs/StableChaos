@@ -18,9 +18,10 @@ def main():
     screen_size = (1600, 1200)
     grid_size = 2
     configuration = Configuration.Adjacency
+    dimensionality = Dimensionality.Planar
     
 
-    engine = TCEngine(screen_size, grid_size, dimensionality)
+    engine = TCEngine(screen_size, grid_size, dimensionality, configuration)
     engine.run(engine.activate)
 
 if __name__ == '__main__':
