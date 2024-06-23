@@ -1,17 +1,10 @@
 from enum import Enum
 
-x = lambda idx, grid_size: idx % grid_size
-y = lambda idx, grid_size: idx % (grid_size * grid_size) // grid_size
-z = lambda idx, grid_size: idx // (grid_size * grid_size)
-unwrap = lambda idx, grid_size: (x(idx, grid_size), y(idx, grid_size), z(idx, grid_size))
-
-def describe(index, grid_size):
-    x, y, z = unwrap(index, grid_size)
-    return f"Index: {index} Cartesian: ({x}, {y}, {z})"
+describe = lambda idx, cartesian: f"Index: {idx} Cartesian: {cartesian}"
 
 # A Reflection signifies a connection between two reflectors
 class Reflection:
-    def __init__(self, idx, a, b, similance): 
+    def __init__(self, idx, a, b, similance = True): 
         # The ID should always be equivalent to A's ID, but may be unique in higher order dimensions, and will break offsets
         # when wrapping around the grid via toroidal connections
         self.idx = idx
@@ -22,27 +15,25 @@ class Reflection:
         self.interference = 0.0     # This determines constructive or destructive flow
     
     def __str__(self):
-        return str("Reflection", describe(self.idx), "Similance: ", self.similance, "Induction: ", self.induction, "Interference: ", self.interference)
+        return str(f"\tReflection {self.idx}:: \n\t\t\tSimilance: {self.similance} \n\t\t\tInduction: {self.induction} \n\t\t\tInterference: {self.interference}")
     
     def __repr__(self):
         return str(self)
 
 class Reflector:
-    def __init__(self, idx):
+    def __init__(self, idx, cartesian):
         self.idx = idx
-        self.reflections = set()  # These are the reflections that are connected to the reflector
-        self.normalize = lambda idx, width: (idx % width, idx // width)
-
-    def addReflection(self, reflection,):
-        self.reflections.add(reflection)
+        self.x, self.y, self.z = cartesian
+        self.cartesian = lambda: (self.x, self.y, self.z)
+        self.reflections = set()  # These are the reflections that are connected to this reflector
 
     def __str__(self):
-        reflector = str("Reflector ", describe(self.idx))
+        reflector = str(f"Reflector {describe(self.idx, self.cartesian())}")
 
         for reflection in self.reflections:
-            reflector += f"\n\tNeighbor: {reflection}"
-            similance = "neighbor" if reflection.is_neighbor else "opposition"
-            reflector += f"\n\tSimilance: {similance}"
+            reflector += f"\n\tNeighbor: \n\t{reflection}"
+            similance = "neighbor" if reflection.similance else "opposition"
+            reflector += f"\n\t\tSimilance: {similance}"
         
         return reflector
     
@@ -50,15 +41,14 @@ class Reflector:
         return str(self)
     
     # This function could be modified to connect new reflectors and determine their influence
-    def isNeighbor(idx, neighbor_idx, width):
+    def isNeighbor(self, neighbor_cartesians):
+        neighbor_x, neighbor_y, neighbor_z = neighbor_cartesians
+
         # If X,Y || X,Z || Y,Z are the same, then we have a neighbor
-        self_x, self_y, self_z = unwrap(idx, width)
-        neighbor_x, neighbor_y, neighbor_z = unwrap(neighbor_idx, width)
-        
         match_box = 0
-        match_box += 1 if self_x == neighbor_x else 0
-        match_box += 1 if self_y == neighbor_y else 0
-        match_box += 1 if self_z == neighbor_z else 0
+        match_box += 1 if self.x == neighbor_x else 0
+        match_box += 1 if self.y == neighbor_y else 0
+        match_box += 1 if self.z == neighbor_z else 0
 
         return match_box >= 2 
 

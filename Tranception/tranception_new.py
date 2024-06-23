@@ -26,14 +26,14 @@ class Tranception:
         # We connect to all neighbors within the bounding box set to the grid size
         # We connect to the neighbors based on 3D coordinates
         # We add toroidal connections to the grid, wrapping around the grid
-    def realize(self):
+    async def realize(self):
         for z in range(self.grid_size):
             for y in range(self.grid_size):
                 for x in range(self.grid_size):
                     grid_index = z * self.grid_size * self.grid_size + y * self.grid_size + x
 
                     # This creates a "node" in our grid
-                    reflector = Reflector(grid_index)
+                    reflector = Reflector(grid_index, (x, y, z))
                     self.reflections.add(reflector)
 
                     # We want to iterate within our bounds
@@ -66,14 +66,15 @@ class Tranception:
                                 # If we have not seen the neighbor, we add it and it's reflection
                                 if neighbor is None:
                                     # while determining if it has similance or opposition
-                                    neighbor = Reflector(neighbor_idx)
+                                    neighbor = Reflector(neighbor_idx, (neighbor_x, neighbor_y, neighbor_z))
                                     self.reflectors.add(neighbor)
 
                                     # This is where we need to also add a new reflection
-                                    reflection = Reflection(len(self.reflections), reflector, neighbor, reflector.isNeighbor(neighbor_idx, self.grid_size))
+                                    reflection = Reflection(len(self.reflections), reflector, neighbor, reflector.isNeighbor(neighbor.cartesian()))
+
                                     self.reflections.add(reflection)
-                                    reflector.addReflection(reflection)
-                                    neighbor.addReflection(reflection)
+                                    reflector.reflections.add(reflection)
+                                    neighbor.reflections.add(reflection)
                                     
 
 
