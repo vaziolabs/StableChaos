@@ -1,6 +1,5 @@
 import asyncio
-from tc_engine import TCEngine
-from reflector import Dimensionality
+from tc_engine import TCEngine, Configuration, Dimensionality
 
 # TODO: 
 #       Graph single node - single phase.. 
@@ -16,11 +15,12 @@ from reflector import Dimensionality
 def main():
     print(" ~~~~  Tranception dude!  ~~~~~")
 
-    grid_size = 3
-    dimensionality = Dimensionality.Cubic
+    screen_size = (1600, 1200)
+    grid_size = 2
+    configuration = Configuration.Adjacency
     
 
-    engine = TCEngine((1600, 1200), grid_size, dimensionality)
+    engine = TCEngine(screen_size, grid_size, dimensionality)
     engine.run(engine.activate)
 
 if __name__ == '__main__':

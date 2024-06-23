@@ -1,5 +1,3 @@
-from enum import Enum
-
 describe = lambda idx, cartesian: f"Index: {idx} Cartesian: {cartesian}"
 
 # A Reflection signifies a connection between two reflectors
@@ -10,7 +8,7 @@ class Reflection:
         self.idx = idx
         self.a = a
         self.b = b
-        self.similance = similance   # This determines if the reflection is similar or opposite
+        self.polarity = similance   # This determines if the reflection is similar or opposite
         self.induction = 0.0        # This determines positive or negative flow
         self.interference = 0.0     # This determines constructive or destructive flow
     
@@ -41,7 +39,7 @@ class Reflector:
         return str(self)
     
     # This function could be modified to connect new reflectors and determine their influence
-    def isNeighbor(self, neighbor_cartesians):
+    def isOrthogonal(self, neighbor_cartesians):
         neighbor_x, neighbor_y, neighbor_z = neighbor_cartesians
 
         # If X,Y || X,Z || Y,Z are the same, then we have a neighbor
@@ -52,16 +50,5 @@ class Reflector:
 
         return match_box >= 2 
 
-
-# TODO: Implement this for varying configurations of the grid
-class Dimensionality(Enum):
-    Sparse = 1,         # This is does not look angular, but is interconnected e.g. Left, Right, Up, Down, Forward, Backward (not-combinatorially connected)
-    Sparse_Torus = 2,   # This is the 2D network that wraps around itself, nd - circular
-    Cubic = 4,          # This is an interconnected network that is 3D in nature
-    Cubic_Toroidal = 5, # This is the 3D network that wraps around itself in all dimensions, nd - spherical
-    Hyper = 6           # This is a configuration of Every Node connecting to one another
-
-    __str__ = lambda self: self.name
-        
 
 
