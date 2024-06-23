@@ -1,5 +1,5 @@
 import pygame
-from color import Color
+from engine import Color
 from state import State
 import random
 
