@@ -1,5 +1,8 @@
 # HATS - Hybrid Abstract Transitory State
 (unstable, in development)
+ Tranception is a model that defines rules that allow for infinite scalability based on first principals.. Defining concepts like resonance, threshold induction, interference and divergence. This allows for the emergence of self-awareness, and can be used to represent any model of anything that can be defined by a wave, or as having some flow, and could even be used for concepts like convolutions, neural networks, and basically anything that could be represented as having some geometry, volume, or fluctuation over time.
+
+ The Stable Chaos Model defines how a system can have an infinite number of states, be self-guiding, self-actuation, and self-stabilizing. It is a system for defining the relationship between stable systems and chaotic systems.
 
 ### Description
 The core of this system has multiple components, but a single function.
