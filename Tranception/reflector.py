@@ -21,6 +21,7 @@ class Reflector(Position, Resonator):
         self.polar = set()            # These are the reflectors that are polar to this reflector       - up to 8
         self.loopback = None          # This is a connection to ourselves                               - 1 | None
         self.neighbors = [self.loopback, *self.orthogonal, *self.adjacent, *self.polar]
+        self.distance = lambda neighbor: sum([(a - b) ** 2 for a, b in zip(self.origin(), neighbor.origin())]) ** 0.5
 
     def __str__(self):
         return f"{describe(self.idx, self.origin())}" \
@@ -32,15 +33,22 @@ class Reflector(Position, Resonator):
     def __repr__(self):
         return str(self)
     
-    def addOrthogonal(self, reflection):
-        self.orthogonal.add(reflection)
-    
-    def addAdjacent(self, reflection):
-        self.adjacent.add(reflection)
-
-    def addPolar(self, reflection):
-        self.polar.add(reflection)
-
+    def reflectionType(self, neighbor_cartesians):
+        debug(4 ,"\t\t\t\t > Determining Reflection Type")
+        debug(4 ,f"\t\t\t\t\t > Self: {self.origin()}, Neighbor:  {neighbor_cartesians}")
+        if self.cartesian() == neighbor_cartesians:
+            debug(4 ,"\t\t\t\t\t > Self Reflection")
+            return Polarity.Self
+        if self.isOrthogonal(neighbor_cartesians):
+            debug(4 ,"\t\t\t\t\t > Orthogonal Reflection")
+            return Polarity.Orthogonal
+        if self.isPolar(neighbor_cartesians):
+            debug(4 ,"\t\t\t\t\t > Polar Reflection")
+            return Polarity.Polar
+        if self.isAdjacent(neighbor_cartesians):
+            debug(4 ,"\t\t\t\t\t > Adjacent Reflection")
+            return Polarity.Adjacent
+        
     def addReflection(self, reflection):
         match reflection.polarity:
             case Polarity.Self:
@@ -51,6 +59,15 @@ class Reflector(Position, Resonator):
                 self.addAdjacent(reflection)
             case Polarity.Polar:
                 self.addPolar(reflection)
+
+    def addOrthogonal(self, reflection):
+        self.orthogonal.add(reflection)
+    
+    def addAdjacent(self, reflection):
+        self.adjacent.add(reflection)
+
+    def addPolar(self, reflection):
+        self.polar.add(reflection)
 
     def matcher(self, offset, neighbour_cartesians) -> bool:
         position = lambda: (self.x + offset[0], self.y + offset[1], self.z + offset[2])
@@ -75,21 +92,6 @@ class Reflector(Position, Resonator):
         adjacencies = [(1, 1, 0), (1, 0, 1), (0, 1, 1), (-1, 1, 0), (-1, 0, 1), (0, 1, -1)]
         return any([self.matcher(offset, neighbor_cartesians) for offset in adjacencies])
 
-    def reflectionType(self, neighbor_cartesians):
-        debug(4 ,"\t\t\t\t > Determining Reflection Type")
-        debug(4 ,f"\t\t\t\t\t > Self: {self.origin()}, Neighbor:  {neighbor_cartesians}")
-        if self.cartesian() == neighbor_cartesians:
-            debug(4 ,"\t\t\t\t\t > Self Reflection")
-            return Polarity.Self
-        if self.isOrthogonal(neighbor_cartesians):
-            debug(4 ,"\t\t\t\t\t > Orthogonal Reflection")
-            return Polarity.Orthogonal
-        if self.isPolar(neighbor_cartesians):
-            debug(4 ,"\t\t\t\t\t > Polar Reflection")
-            return Polarity.Polar
-        if self.isAdjacent(neighbor_cartesians):
-            debug(4 ,"\t\t\t\t\t > Adjacent Reflection")
-            return Polarity.Adjacent
         
     # TODO: The transceiver needs to be wired up to the reflection type
     async def rcv(self, transmission): # Do we want to log who we receptioned from?
@@ -115,13 +117,3 @@ class Reflector(Position, Resonator):
         self.reception = (self.theta + other.threshold) / 2.0
         await self.resonate()
         return await other.rcv(self.theta)
-    
-    ## This function is purely to simulate the sending of a signal
-    async def simulate(self, idx):
-        print(" [ Node Simulated: ] ", self.idx)
-        i = self.resolution(440)
-        while i > 0:
-            await self.snd(self.connections[idx])
-            print("|> Simulating: ", i)
-            print("theta::", self.theta, ", thrsh::", self.threshold, ", recpt::", self.reception)
-            i -= 1

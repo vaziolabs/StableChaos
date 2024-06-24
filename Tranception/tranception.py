@@ -89,16 +89,21 @@ class Tranception:
                                     reflector.addReflection(reflection)
                                     neighbor.addReflection(reflection)
 
-        print("Realized Grid of Reflectors")    
+        debug(5, "Realized Grid of Reflectors")    
         for reflector in self.reflectors:
             print(reflector)
         
-        print("\nRealized Network of Reflections\n")
+        debug(5, "\nRealized Network of Reflections\n")
         for reflection in self.reflections:
             reflection.report()
 
 
     async def actualize(self):
+        # This is where we need to see what happens when we start the tranception process
+        # Resonate, Reflect, Transceive, Resolve, Observe
+
+        resonators = [reflector.resonate() for reflector in self.reflectors]
+        reflections = [reflection.observe() for reflection in self.reflections]
         return
 
     def observe(self):
