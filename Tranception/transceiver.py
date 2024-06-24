@@ -18,13 +18,44 @@ class Transceiver:
         self.b = b
         self.polarity = similance   # This determines if the reflection is similar or opposite
         self.induction = 0.0        # This determines positive or negative flow
-        self.interference = 0.0     # This determines constructive or destructive flow
     
     def report(self):
         debug(3, f" > (( Transceiver {self.idx} - {self.polarity})):")
         debug(3, f" \t\tReflector A: {self.a.idx} \n\t\tReflector B: {self.b.idx}")
               
         debug(3, f"\t\tPolarity: {self.polarity} \n\t\tInduction: {self.induction} \n\t\tInterference: {self.interference}")
+
+    def reflect(self):
+        self.induction = self.divergence(self.interference())
+
+    def phaseDifference(self):
+        return ((self.a.theta - self.b.theta)  + 360) % 360
+
+    def interference(self):
+        # If the phase difference is between 0 and 90, or 270 and 360, we are in phase
+        if 90 <= self.phaseDifference() < 270:
+            return self.a - self.b
+        
+        # If the phase difference is between 90 and 180, or 180 and 270, we are out of phase
+        return self.a + self.b
+
+    def divergence(self, interference):
+        if self.polarity == Polarity.Self:
+            return 0.0
+    
+        if self.polarity == Polarity.Orthogonal:
+            theta_a = self.a.theta
+            theta_b = self.b.theta
+            if theta_a < theta_b:
+                return interference
+            if theta_a > theta_b:
+                return -1.0 * interference
+        
+        if self.polarity == Polarity.Adjacent:
+            return interference
+        
+        if self.polarity == Polarity.Polar:
+            return -1.0 * interference
 
     def __str__(self):
         return str(f" > (( Transceiver {self.idx} )): \n\t\tPolarity: {self.polarity} \n\t\tInduction: {self.induction} \n\t\tInterference: {self.interference}")
