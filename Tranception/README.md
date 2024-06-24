@@ -28,7 +28,21 @@ The question is, can we use this to represent different models of physical exist
  - The `Tranception` model can be ran with `python main.py`, and simply outputs single timestep values from a given set of inputs. This diagram is far from complete.
 
 ### Todos:
- - [ ] implement a dynamic ability to define theta externally
- - [ ] stabilize and scale the transceiver model to ensure functional integrity
+ - [X] stabilize and scale the transceiver model to ensure functional integrity
+ - [ ] Implement Configurations and Dimensions such that we can acheive
+    - [ ] Dimensionality
+        - [ ] 1x2 - Linear
+        - [ ] 2x2 - Planar
+        - [ ] 3x3x3 - Cubic
+            - [ ] - with Toroidal/Spherical connections
+        - [ ] 3x3x3x2 - Tensor 
+    - [ ] Configuration
+        - [ ] Sparse - Orthogonal Only
+        - [ ] Radial - Adjacent Only
+        - [ ] Direct - Orthogonal and Adjacent Only
+        - [ ] Polar 
+        - [ ] Mesh - Complete
+        - [ ] Hyper - Everything connected to everything else.
  - [ ] integrate a particle like system to represent data tranception between nodes
  - [ ] implement unit tests
+ - [ ] implement a dynamic ability to define theta externally
