@@ -3,6 +3,19 @@
 ### Intent 
 An attempt to create a highly scalable abstract type that can have infinite transitory states, and self-defining relationships.
 
+### Model
+```
+Green - Origin
+Red - Orthogonal
+Green - Adjacent
+Black - Polar
+```
+A Single Nodes connections
+![image](https://github.com/BigStickStudio/StableChaos/assets/87874714/37af4ce5-b436-48db-8fea-d80c2cfb9262)
+
+Fully Connected (all surrounding reflections)
+![image](https://github.com/BigStickStudio/StableChaos/assets/87874714/77c2bd0e-bcee-4e17-87ba-9db02cdae66a)
+
 ### Overview
 The Tranception Evokation System is designed to simulate and manage cognitive processes through the manipulation of oscillatory phases (theta), frequencies (omega), and resolutions. This system leverages transceivers (reflectors) to receive, process, and transmit information, enhancing communication and interaction within the network.
 
