@@ -103,8 +103,11 @@ class Tranception:
         # Resonate, Reflect, Transceive, Resolve, Observe
 
         resonators = [reflector.resonate() for reflector in self.reflectors]
-        reflections = [reflection.observe() for reflection in self.reflections]
-        return
+        reflections = [reflection.reflect() for reflection in self.reflections]
+        reports = [reflection.report() for reflection in self.reflections]
+
+        return await asyncio.gather(*resonators, *reflections, *reports)
+        
 
     def observe(self):
         pass

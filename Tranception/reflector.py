@@ -15,6 +15,7 @@ class Position:
 class Reflector(Position, Resonator):
     def __init__(self, idx, cartesian):
         super().__init__(idx, cartesian)
+        Resonator.__init__(self)
         self.cartesian = lambda: self.origin()
         self.orthogonal = set()       # These are the reflectors that are orthogonal to this reflector  - up to 6
         self.adjacent = set()         # These are the reflectors that are adjacent to this reflector    - up to 12
