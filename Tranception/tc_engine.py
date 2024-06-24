@@ -1,6 +1,6 @@
 import asyncio
 import sys
-from tranception_new import Tranception
+from tranception import Tranception
 sys.path.append('../')
 from engine import Engine, Color
 from enum import Enum
