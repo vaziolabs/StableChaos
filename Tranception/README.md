@@ -1,7 +1,7 @@
 # Tranception Evokation System
 
 ### Intent 
-An attempt to create a highly scalable abstract type that can have infinite transitory states, and self-defining relationships.
+An attempt to create a highly scalable abstract type that can have infinite transitory states, and self-defining relationships. We have acheived a set of first principle rules that allow us to define a simple data type that produces the type of adjacency matrix seen below, with multiple orders of connectivity and feedback across a very simple network, constructed with a simple set of rules with mechanisms to calculate resonance, threshold, induction and interference, as well as phase and theta.
 
 ### Model
 ```
