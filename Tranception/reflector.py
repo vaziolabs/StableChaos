@@ -12,9 +12,6 @@ class Position:
         self.x, self.y, self.z = origin
         self.origin = lambda: (self.x, self.y, self.z)
 
-    def distance(self, neighbor):
-        return sum([(a - b) ** 2 for a, b in zip(self.origin(), neighbor.origin())]) ** 0.5
-        
 class Reflector(Position, Resonator):
     def __init__(self, idx, cartesian):
         super().__init__(idx, cartesian)
@@ -25,7 +22,7 @@ class Reflector(Position, Resonator):
         self.polar = set()            # These are the reflectors that are polar to this reflector       - up to 8
         self.loopback = None          # This is a connection to ourselves                               - 1 | None
         self.neighbors = [self.loopback, *self.orthogonal, *self.adjacent, *self.polar]
-        self.distance = lambda neighbor: sum([(a - b) ** 2 for a, b in zip(self.origin(), neighbor.origin())]) ** 0.5
+        self.distance = lambda neighbor: sum([(a - b) ** 2 for a, b in zip(self.origin(), neighbor)]) ** 0.5
         print("\t\t\t - Reflector initialized")
 
     def __str__(self):
@@ -48,18 +45,18 @@ class Reflector(Position, Resonator):
     def reflectionType(self, neighbor_cartesians):
         debug(5 ,"\t\t\t\t > Determining Reflection Type")
         debug(5 ,f"\t\t\t\t\t > Self: {self.origin()}, Neighbor:  {neighbor_cartesians}")
-        if self.cartesian() == neighbor_cartesians:
-            debug(5 ,"\t\t\t\t\t > Self Reflection")
+        distance = self.distance(neighbor_cartesians)
+        if distance > 2:
+            return Polarity.OutOfRange
+
+        if distance == 0:
             return Polarity.Self
-        if self.isOrthogonal(neighbor_cartesians):
-            debug(5 ,"\t\t\t\t\t > Orthogonal Reflection")
+        elif distance <= 1:
             return Polarity.Orthogonal
-        if self.isPolar(neighbor_cartesians):
-            debug(5 ,"\t\t\t\t\t > Polar Reflection")
-            return Polarity.Polar
-        if self.isAdjacent(neighbor_cartesians):
-            debug(5 ,"\t\t\t\t\t > Adjacent Reflection")
+        elif distance <= 1.5:
             return Polarity.Adjacent
+        else:
+            return Polarity.Polar
         
     def addReflection(self, reflection):
         match reflection.polarity:
@@ -81,23 +78,6 @@ class Reflector(Position, Resonator):
     def addPolar(self, reflection):
         self.polar.add(reflection)
 
-    def matcher(self, offset, neighbour_cartesians) -> bool:
-        position = lambda: (self.x + offset[0], self.y + offset[1], self.z + offset[2])
-        debug(4 ,f"\t\t\t\t\t > Matching: {self.origin()} + {offset} = {position()} to {neighbour_cartesians}")
-        return position() == neighbour_cartesians
-
-    def isPolar(self, neighbor_cartesians):
-        poles = [(1, 1, 1), (-1, 1, 1), (1, -1, 1), (-1, -1, 1)]
-        return any([self.matcher(offset, neighbor_cartesians) for offset in poles])
-
-    # This function could be modified to connect new reflectors and determine their influence
-    def isOrthogonal(self, neighbor_cartesians):
-        match = [(1, 0, 0), (0, 1, 0), (0, 0, 1)]
-        return any([self.matcher(offset, neighbor_cartesians) for offset in match])
-    
-    def isAdjacent(self,neighbor_cartesians):
-        adjacencies = [(1, 1, 0), (1, 0, 1), (0, 1, 1), (-1, 1, 0), (-1, 0, 1), (0, 1, -1), (0, -1, 1)]
-        return any([self.matcher(offset, neighbor_cartesians) for offset in adjacencies])
 
         
     # TODO: The transceiver needs to be wired up to the reflection type

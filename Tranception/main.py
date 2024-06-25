@@ -17,7 +17,7 @@ def main():
 
     start_time = asyncio.get_event_loop().time()
     screen_size = (1600, 1200)
-    grid_size = 36
+    grid_size = 8
     configuration = Configuration.Adjacency
     dimensionality = Dimensionality.Planar
 

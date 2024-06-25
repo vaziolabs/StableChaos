@@ -6,6 +6,7 @@ class Polarity(Enum):
     Orthogonal = 1
     Adjacent = 2
     Polar = 3
+    OutOfRange = 4
     __str__ = lambda self: self.name
 
 # A Reflection signifies a connection between two reflectors

@@ -130,8 +130,8 @@ class Tranception:
 
     def report(self):
         debug(4, f"Realized Grid of {len(self.reflectors)} Reflectors")    
-        for reflector in self.reflectors:
-            print(reflector)
+        # for reflector in self.reflectors:
+        #     print(reflector)
         
         polar_reclections = len([reflection for reflection in self.reflections if reflection.polarity == Polarity.Polar])
         adjacent_reclections = len([reflection for reflection in self.reflections if reflection.polarity == Polarity.Adjacent])
@@ -145,7 +145,7 @@ class Tranception:
         debug(4, f"\tSelf: {self_reflections} / {self.self_reflections}")
         debug(4, f"\tUncaught: {uncaught_reflections} / {self.uncaught}")
         # for reflection in self.reflections:
-        #     reflection.fullReport()
+        #     reflection.fullReport() 
 
 
     async def actualize(self):
