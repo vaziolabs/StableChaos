@@ -11,6 +11,9 @@ class Position:
         self.idx = idx
         self.x, self.y, self.z = origin
         self.origin = lambda: (self.x, self.y, self.z)
+
+    def distance(self, neighbor):
+        return sum([(a - b) ** 2 for a, b in zip(self.origin(), neighbor.origin())]) ** 0.5
         
 class Reflector(Position, Resonator):
     def __init__(self, idx, cartesian):
@@ -23,6 +26,7 @@ class Reflector(Position, Resonator):
         self.loopback = None          # This is a connection to ourselves                               - 1 | None
         self.neighbors = [self.loopback, *self.orthogonal, *self.adjacent, *self.polar]
         self.distance = lambda neighbor: sum([(a - b) ** 2 for a, b in zip(self.origin(), neighbor.origin())]) ** 0.5
+        print("\t\t\t - Reflector initialized")
 
     def __str__(self):
         return f"{describe(self.idx, self.origin())}" \
@@ -34,20 +38,27 @@ class Reflector(Position, Resonator):
     def __repr__(self):
         return str(self)
     
+    def report(self):
+        return f"\t{describe(self.idx, self.origin())}" \
+                f"\n\t\tOrthogonal: {len(self.orthogonal)}" \
+                f"\n\t\tAdjacent: {len(self.adjacent)}" \
+                f"\n\t\tPolar: {len(self.polar)}" \
+                f"\n\t\tLoopback: {"Self" if self.loopback is not None else "None"}"
+    
     def reflectionType(self, neighbor_cartesians):
-        debug(4 ,"\t\t\t\t > Determining Reflection Type")
-        debug(4 ,f"\t\t\t\t\t > Self: {self.origin()}, Neighbor:  {neighbor_cartesians}")
+        debug(5 ,"\t\t\t\t > Determining Reflection Type")
+        debug(5 ,f"\t\t\t\t\t > Self: {self.origin()}, Neighbor:  {neighbor_cartesians}")
         if self.cartesian() == neighbor_cartesians:
-            debug(4 ,"\t\t\t\t\t > Self Reflection")
+            debug(5 ,"\t\t\t\t\t > Self Reflection")
             return Polarity.Self
         if self.isOrthogonal(neighbor_cartesians):
-            debug(4 ,"\t\t\t\t\t > Orthogonal Reflection")
+            debug(5 ,"\t\t\t\t\t > Orthogonal Reflection")
             return Polarity.Orthogonal
         if self.isPolar(neighbor_cartesians):
-            debug(4 ,"\t\t\t\t\t > Polar Reflection")
+            debug(5 ,"\t\t\t\t\t > Polar Reflection")
             return Polarity.Polar
         if self.isAdjacent(neighbor_cartesians):
-            debug(4 ,"\t\t\t\t\t > Adjacent Reflection")
+            debug(5 ,"\t\t\t\t\t > Adjacent Reflection")
             return Polarity.Adjacent
         
     def addReflection(self, reflection):
@@ -72,32 +83,27 @@ class Reflector(Position, Resonator):
 
     def matcher(self, offset, neighbour_cartesians) -> bool:
         position = lambda: (self.x + offset[0], self.y + offset[1], self.z + offset[2])
+        debug(4 ,f"\t\t\t\t\t > Matching: {self.origin()} + {offset} = {position()} to {neighbour_cartesians}")
         return position() == neighbour_cartesians
 
     def isPolar(self, neighbor_cartesians):
-        poles = [(1, 1, 1), (-1, 1, 1), (-1, 1, -1), (1, 1, -1)]
+        poles = [(1, 1, 1), (-1, 1, 1), (1, -1, 1), (-1, -1, 1)]
         return any([self.matcher(offset, neighbor_cartesians) for offset in poles])
 
     # This function could be modified to connect new reflectors and determine their influence
     def isOrthogonal(self, neighbor_cartesians):
-        neighbor_x, neighbor_y, neighbor_z = neighbor_cartesians
-
-        match_box = 0
-        match_box += 1 if self.x + 1 == neighbor_x else 0
-        match_box += 1 if self.y + 1 == neighbor_y else 0
-        match_box += 1 if self.z + 1 == neighbor_z else 0
-
-        return match_box == 1
+        match = [(1, 0, 0), (0, 1, 0), (0, 0, 1)]
+        return any([self.matcher(offset, neighbor_cartesians) for offset in match])
     
     def isAdjacent(self,neighbor_cartesians):
-        adjacencies = [(1, 1, 0), (1, 0, 1), (0, 1, 1), (-1, 1, 0), (-1, 0, 1), (0, 1, -1)]
+        adjacencies = [(1, 1, 0), (1, 0, 1), (0, 1, 1), (-1, 1, 0), (-1, 0, 1), (0, 1, -1), (0, -1, 1)]
         return any([self.matcher(offset, neighbor_cartesians) for offset in adjacencies])
 
         
     # TODO: The transceiver needs to be wired up to the reflection type
     async def rcv(self, transmission): # Do we want to log who we receptioned from?
         print("  -[ Node Received: ", transmission, " ]")
-        self.reception = transmission
+        self.set_frequency = transmission
         awaiting = await self.resonate()
         print(self.idx, " has resonated at ", self.phase, " with a resulting threshold of ", self.threshold)
         return awaiting

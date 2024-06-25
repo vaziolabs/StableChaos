@@ -33,8 +33,11 @@ The question is, can we use this to represent different models of physical exist
 ### Usage
 
  - The `Tranception` model can be ran with `python main.py`, and simply outputs single timestep values from a given set of inputs. This diagram is far from complete.
+    - Debug Levels can be set in debug.py
+        - 5 is most verbose and 0 is most silent
 
 ### Todos:
+ - [ ] Implement a proper debugger
  - [X] stabilize and scale the transceiver model to ensure functional integrity
  - [ ] Implement Configurations and Dimensions such that we can acheive
     - [ ] Dimensionality

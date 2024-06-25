@@ -15,7 +15,34 @@ class Tranception:
         self.grid_size = grid_size
         self.reflectors = set()
         self.reflections = set()
+        self.adjacencies = 0
+        self.orthogonals = 0
+        self.polars = 0
+        self.self_reflections = 0
+        self.uncaught = 0
         self.realize() 
+
+    # Returns previous count for indexing purposes, and increments the count
+    def count(self, reflection_type):
+        previous = 0
+
+        if reflection_type == Polarity.Adjacent:
+            previous = self.adjacencies
+            self.adjacencies += 1
+        if reflection_type == Polarity.Orthogonal:
+            previous = self.orthogonals
+            self.orthogonals += 1
+        if reflection_type == Polarity.Polar:
+            previous = self.polars
+            self.polars += 1
+        if reflection_type == Polarity.Self:
+            previous = self.self_reflections
+            self.self_reflections += 1
+        if reflection_type is None:
+            previous = self.uncaught
+            self.uncaught += 1
+
+        return previous
 
     # This is essentially our 'init' function for wiring up the mirrors
     # This is where we will plug in some configuration for dimensions and grid size, as well
@@ -59,13 +86,15 @@ class Tranception:
                                 # If we are at outselve, we add a self reflection
                                 if neighbor_idx == grid_index:
                                     debug(4 ,"\t\t\tAdding Self Reflection")
-                                    self_reflection = Transceiver(len(self.reflections), reflector, reflector, Polarity.Self)
+                                    self_reflection = Transceiver(self.self_reflections, reflector, reflector, Polarity.Self)
                                     reflector.addReflection(self_reflection)
                                     self.reflections.add(self_reflection)
+                                    self.self_reflections += 1
                                     continue
 
                                 # We assume that the neighbor does not exist
                                 neighbor = None
+                                reflection = None
 
                                 # Check if we have seen the neighbor before
                                 for reflected in self.reflectors:
@@ -81,26 +110,48 @@ class Tranception:
                                     neighbor = Reflector(neighbor_idx, (neighbor_x, neighbor_y, neighbor_z))
                                     self.reflectors.add(neighbor)
 
-                                    debug(4 ,"\t\t\tAdding Neighbor Reflection:")
+                                for reflecting in self.reflections:
+                                    if reflecting.contains((reflector.idx, neighbor.idx)):
+                                        reflection = reflecting
+                                        break
+
+                                debug(4 , f"\t\t\tReflection Exists: {reflection is not None}")
+                                # If we have not seen the reflection, we add it
+                                if reflection is None:
+                                    debug(4 ,"\t\t\tAdding Transceiver Connection:")
                                     reflection_type = reflector.reflectionType(neighbor.origin()) # This is here for logging purposes
-                                    reflection = Transceiver(len(self.reflections), reflector, neighbor, reflection_type) # This is where we need to also add a new reflection
+                                    
+                                    reflection = Transceiver(self.count(reflection_type), reflector, neighbor, reflection_type) # This is where we need to also add a new reflection
 
                                     self.reflections.add(reflection)
                                     reflector.addReflection(reflection)
                                     neighbor.addReflection(reflection)
+        self.report()
 
-        debug(5, "Realized Grid of Reflectors")    
+    def report(self):
+        debug(4, f"Realized Grid of {len(self.reflectors)} Reflectors")    
         for reflector in self.reflectors:
             print(reflector)
         
-        debug(5, "\nRealized Network of Reflections\n")
-        for reflection in self.reflections:
-            reflection.report()
+        polar_reclections = len([reflection for reflection in self.reflections if reflection.polarity == Polarity.Polar])
+        adjacent_reclections = len([reflection for reflection in self.reflections if reflection.polarity == Polarity.Adjacent])
+        orthogonal_reclections = len([reflection for reflection in self.reflections if reflection.polarity == Polarity.Orthogonal])
+        self_reflections = len([reflection for reflection in self.reflections if reflection.polarity == Polarity.Self])
+        uncaught_reflections = len([reflection for reflection in self.reflections if reflection.polarity is None])
+        debug(4, f"\nRealized Network of {len(self.reflections)} Transceiver Reflections")
+        debug(4, f"\tOrthogonal: {orthogonal_reclections} / {self.orthogonals}")
+        debug(4, f"\tAdjacent: {adjacent_reclections} / {self.adjacencies}")
+        debug(4, f"\tPolar: {polar_reclections} / {self.polars}")
+        debug(4, f"\tSelf: {self_reflections} / {self.self_reflections}")
+        debug(4, f"\tUncaught: {uncaught_reflections} / {self.uncaught}")
+        # for reflection in self.reflections:
+        #     reflection.fullReport()
 
 
     async def actualize(self):
         # This is where we need to see what happens when we start the tranception process
         # Resonate, Reflect, Transceive, Resolve, Observe
+        return
 
         resonators = [reflector.resonate() for reflector in self.reflectors]
         reflections = [reflection.reflect() for reflection in self.reflections]
