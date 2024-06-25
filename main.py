@@ -1,5 +1,6 @@
 import asyncio
-from tc_engine import TCEngine, Configuration, Dimensionality
+from Tranception import Configuration, Dimensionality
+from Tranception.engine import TCEngine
 
 # TODO: 
 #       Graph single node - single phase.. 
@@ -17,9 +18,9 @@ def main():
 
     start_time = asyncio.get_event_loop().time()
     screen_size = (1600, 1200)
-    grid_size = 8
+    grid_size = 2
+    dimensionality = Dimensionality.Linear
     configuration = Configuration.Adjacency
-    dimensionality = Dimensionality.Planar
 
     engine = TCEngine(screen_size, grid_size, configuration, dimensionality)
     engine.run(engine.activate)
