@@ -18,9 +18,32 @@ class Transceiver:
         self.b = b
         self.polarity = similance   # This determines if the reflection is similar or opposite
         self.induction = 0.0        # This determines positive or negative flow
+        print(f"\t\t\t - Transceiver {self.identify()} initialized")
+
+    # Takes a tuple of id's and returns True if the reflector set contains the id's
+    def contains(self, reflector_set):
+        a_id, b_id = reflector_set
+        return self.a.idx == a_id and self.b.idx == b_id or self.a.idx == b_id and self.b.idx == a_id
+
+    def __str__(self):
+        return str(f" > (( Transceiver {self.identify()} \t)): \n\t\tInduction: {self.induction}")
     
+    def __repr__(self):
+        return str(self)
+
+    def identify(self):
+        return f"{self.polarity}_{self.idx}"
+
+    def fullReport(self):
+        print(f" > (( {self.identify()} )) ::\n" \
+                f"\t[{self.a.idx} - {self.a.origin()}" \
+                f"\t {self.b.idx}{self.b.origin()}]"\
+                f"\tA:\n{self.a.report()}" \
+                f"\tB:\n{self.b.report()}" \
+                f"\tInduction: {self.induction}")
+
     async def report(self):
-        debug(3, f" > (( Reflection {self.idx} )) \t::({self.a.idx})-({self.b.idx}) - {self.polarity} \t:  \t{self.induction}")
+        debug(3, f" > (( Transceiver \t{self.identify()}  \t)) :: [{self.a.origin()}-{self.b.origin()}] \t:  \t{self.induction}")
 
     async def reflect(self):
         self.induction = self.divergence(self.interference())
@@ -54,8 +77,3 @@ class Transceiver:
         if self.polarity == Polarity.Polar:
             return -1.0 * interference
 
-    def __str__(self):
-        return str(f" > (( Transceiver {self.idx} )): \n\t\tPolarity: {self.polarity} \n\t\tInduction: {self.induction} \n\t\tInterference: {self.interference}")
-    
-    def __repr__(self):
-        return str(self)
