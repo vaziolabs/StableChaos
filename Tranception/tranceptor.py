@@ -10,9 +10,10 @@ sample_frequency = 44100
 # This is the parent class that enacts the tranception process
 #  which is synchronous and asynchronous in nature
 class Tranceptor:
-    def __init__(self, grid_size, dimensional, configuration):
-        self.dimensionality = dimensional   # TODO: Implement these dimensions
+    def __init__(self, grid_size, dimensional, configuration, directional):
+        self.dimensionality = dimensional   
         self.configuration = configuration  # TODO: Implement these configurations
+        self.directionality = directional
         self.grid_size = grid_size
         self.reflectors = set()
         self.reflections = set()
@@ -83,7 +84,6 @@ class Tranceptor:
     async def actualize(self):
         # This is where we need to see what happens when we start the tranception process
         # Resonate, Reflect, Transceive, Resolve, Observe
-        return
 
         resonators = [reflector.resonate() for reflector in self.reflectors]
         reflections = [reflection.reflect() for reflection in self.reflections]
