@@ -115,13 +115,24 @@ class Tranceptor:
         print("") 
         return await asyncio.gather(*reflections)
     
+    def getReflector(self, reflector_id, coords):
+        for reflector in self.reflectors:
+            if reflector.idx == reflector_id:
+                print("Reflector already exists: ", reflector.idx)
+                return reflector
+
+        print("Adding Reflector: ", reflector_id)
+        reflector = Reflector(reflector_id, coords)
+        self.reflectors.add(reflector)
+        return reflector
+        
+
     # Constructor-ish function for the reflectors
     def constructLinearMesh(self):
             for x in range(self.grid_size):
                 debug(4 ,f" > Realizing Reflector: {x}")
                 # This creates a "node" in our grid
-                reflector = Reflector(x, (x, 0, 0))
-                self.reflectors.add(reflector)
+                reflector = self.getReflector(x, (x, 0, 0))
 
                 # We want to iterate within our bounds
                 min_x = max(0, x - 1)
@@ -151,6 +162,7 @@ class Tranceptor:
 
                     # Check if we have seen the neighbor before
                     for reflected in self.reflectors:
+                        print("Comparing: ", reflected.idx, neighbor_idx)
                         if reflected.idx == neighbor_idx:
                             neighbor = reflected
                             break
@@ -159,9 +171,7 @@ class Tranceptor:
                     # If we have not seen the neighbor, we add it and it's reflection
                     # while determining if it has reflection type
                     if neighbor is None:
-                        debug(4 , f"\t\t\t\tAdding Reflector {neighbor_idx}")
-                        neighbor = Reflector(neighbor_idx, (neighbor_x, 0, 0))
-                        self.reflectors.add(neighbor)
+                        neighbor = self.getReflector(neighbor_idx, (neighbor_x, 0, 0))
 
                     for reflecting in self.reflections:
                         if reflecting.contains((reflector.idx, neighbor.idx)):
@@ -187,8 +197,7 @@ class Tranceptor:
                 grid_index = y * self.grid_size + x
                 debug(4 ,f" > Realizing Reflector: {grid_index}")
                 # This creates a "node" in our grid
-                reflector = Reflector(grid_index, (x, y, 0))
-                self.reflectors.add(reflector)
+                reflector = self.getReflector(grid_index, (x, y, 0))
 
                 # We want to iterate within our bounds
                 min_x = max(0, x - 1)
@@ -206,7 +215,7 @@ class Tranceptor:
                         debug(4 , f"\t\tVisiting Neighbor: {neighbor_idx}")
                         debug(4 , f"\t\t\tNeighbor Cartesian: {(neighbor_x, neighbor_y, 0)}")
 
-                        # If we are at outselve, we add a self reflection
+                        # If we are at ourself, we add a self reflection
                         if neighbor_idx == grid_index:
                             debug(4 ,"\t\t\tAdding Self Reflection")
                             self_reflection = Coupling(self.self_reflections, reflector, reflector, Orientation.Self)
@@ -230,8 +239,7 @@ class Tranceptor:
                         # while determining if it has reflection type
                         if neighbor is None:
                             debug(4 , f"\t\t\t\tAdding Reflector {neighbor_idx}")
-                            neighbor = Reflector(neighbor_idx, (neighbor_x, neighbor_y, 0))
-                            self.reflectors.add(neighbor)
+                            neighbor = self.getReflector(neighbor_idx, (neighbor_x, neighbor_y, 0))
 
                         for reflecting in self.reflections:
                             if reflecting.contains((reflector.idx, neighbor.idx)):
@@ -259,8 +267,7 @@ class Tranceptor:
                     grid_index = z * self.grid_size * self.grid_size + y * self.grid_size + x
                     debug(4 ,f" > Realizing Reflector: {grid_index}")
                     # This creates a "node" in our grid
-                    reflector = Reflector(grid_index, (x, y, z))
-                    self.reflectors.add(reflector)
+                    reflector = self.getReflector(grid_index, (x, y, z))
 
                     # We want to iterate within our bounds
                     min_x = max(0, x - 1)
@@ -305,7 +312,7 @@ class Tranceptor:
                                 # while determining if it has reflection type
                                 if neighbor is None:
                                     debug(4 , f"\t\t\t\tAdding Reflector {neighbor_idx}")
-                                    neighbor = Reflector(neighbor_idx, (neighbor_x, neighbor_y, neighbor_z))
+                                    neighbor = self.getReflector(neighbor_idx, (neighbor_x, neighbor_y, neighbor_z))
                                     self.reflectors.add(neighbor)
 
                                 for reflecting in self.reflections:
