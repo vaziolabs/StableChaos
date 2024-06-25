@@ -41,9 +41,9 @@ The question is, can we use this to represent different models of physical exist
  - [X] stabilize and scale the transceiver model to ensure functional integrity
  - [ ] Implement Configurations and Dimensions such that we can acheive
     - [ ] Dimensionality
-        - [ ] 1x2 - Linear
-        - [ ] 2x2 - Planar
-        - [ ] 3x3x3 - Cubic
+        - [X] 1x2 - Linear
+        - [X] 2x2 - Planar
+        - [X] 3x3x3 - Cubic
             - [ ] - with Toroidal/Spherical connections
         - [ ] 3x3x3x2 - Tensor 
     - [ ] Configuration
