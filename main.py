@@ -1,5 +1,5 @@
 import asyncio
-from Tranception import Configuration, Dimensionality
+from Tranception import Configuration, Dimensionality, Directionality
 from Tranception.engine import TCEngine
 
 # TODO: 
@@ -20,6 +20,7 @@ def main():
     grid_size = 2
     dimensionality = Dimensionality.Planar
     configuration = Configuration.Adjacency
+    directionality = Directionality.Bidirectional
 
     engine = TCEngine(screen_size, grid_size, configuration, dimensionality)
     print(f" ~~~~  Tranception dude!  ~~~~~\n\t\t\t - took {asyncio.get_event_loop().time() - start_time:.5f} seconds to initialize.")

@@ -56,6 +56,10 @@ The question is, can we use this to represent different models of physical exist
         - [ ] Mesh - Complete
         - [ ] Toroidal - Complete + Infinite bounds e.g. (max_width)-(0)
         - [ ] Hyper - Everything connected to everything else.
+    - [ ] Directionality
+        - [ ] Forward
+        - [ ] Backwards
+        - [ ] Radio
  - [ ] add the ability to view, or phase step based on the reflection type
  - [ ] add the ability to integrate filters
  - [ ] add functionality for audio, electrical and electromagnetic analysis
