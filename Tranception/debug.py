@@ -1,4 +1,4 @@
-debug_level = 3
+debug_level = 2
 
 def debug(level, message):
     if level <= debug_level:
