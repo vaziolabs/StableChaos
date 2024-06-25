@@ -32,9 +32,11 @@ The question is, can we use this to represent different models of physical exist
 
 ### Usage
 
- - The `Tranception` model can be ran with `python main.py`, and simply outputs single timestep values from a given set of inputs. This diagram is far from complete.
+ - The `Tranception` model can be ran from the parent directory with `python main.py`.
     - Debug Levels can be set in debug.py
         - 5 is most verbose and 0 is most silent
+    - Dimensionality can be set in main.py
+        - Linear, Planar and Cubic are currently supported.
 
 ### Todos:
  - [ ] Implement a proper debugger
@@ -49,9 +51,10 @@ The question is, can we use this to represent different models of physical exist
     - [ ] Configuration
         - [ ] Sparse - Orthogonal Only
         - [ ] Radial - Adjacent Only
-        - [ ] Direct - Orthogonal and Adjacent Only
-        - [ ] Polar 
+        - [ ] Contiguous - Orthogonal and Adjacent Only
+        - [ ] Polar - Only Polar Connections
         - [ ] Mesh - Complete
+        - [ ] Toroidal - Complete + Infinite bounds e.g. (max_width)-(0)
         - [ ] Hyper - Everything connected to everything else.
  - [ ] add the ability to view, or phase step based on the reflection type
  - [ ] add the ability to integrate filters

@@ -15,16 +15,15 @@ from Tranception.engine import TCEngine
 # TODO: Implement Toroidal and Hyperdimensional configurations, as well as sparse connections
 def main():
     print(" ~~~~  Tranception dude!  ~~~~~")
-
     start_time = asyncio.get_event_loop().time()
     screen_size = (1600, 1200)
     grid_size = 2
-    dimensionality = Dimensionality.Linear
+    dimensionality = Dimensionality.Planar
     configuration = Configuration.Adjacency
 
     engine = TCEngine(screen_size, grid_size, configuration, dimensionality)
+    print(f" ~~~~  Tranception dude!  ~~~~~\n\t\t\t - took {asyncio.get_event_loop().time() - start_time:.5f} seconds to initialize.")
     engine.run(engine.activate)
-    print(f" ~~~~  Tranception dude!  ~~~~~\n\t\t\t - took {asyncio.get_event_loop().time() - start_time:.5f} seconds")
 
 if __name__ == '__main__':
     main()

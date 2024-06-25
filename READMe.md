@@ -21,8 +21,8 @@ The core of this system has multiple components, but a single function.
     We can literally observe the angle of our wave, derived from the threshold which both regulates and trails the resonance, which allows for cyclic observance over any delta.
 
 ### Usage:
- - The `Stable Chaos Model` can be ran with `python main.py`, and signifies a network of 4 nodes attempting to follow and oppose itself.
- - The `Tranception` model can be ran with `python main.py`, and simply outputs single timestep values from a given set of inputs. This diagram is far from complete.
+ - The `Stable Chaos Model` can be ran from the SCM directory with `python main.py`, and signifies a network of 4 nodes attempting to follow and oppose itself.
+ - The `Tranception` model can be ran from this directory with `python main.py`, and simply outputs single timestep values from a given set of inputs. This diagram is far from complete.
 
 ### Todos:
  - [ ] abstract the graphics engine to allow for multiple implemetations
