@@ -19,7 +19,7 @@ class Coupling:
         return self.a.idx == a_id and self.b.idx == b_id or self.a.idx == b_id and self.b.idx == a_id
 
     def __str__(self):
-        return str(f" > (( Coupling {self.identify()} \t)): \n\t\tInduction: {self.induction}")
+        return str(f" > Coupling {self.identify()} \t: \n\t\tInduction: {self.induction}")
     
     def __repr__(self):
         return str(self)
@@ -36,7 +36,7 @@ class Coupling:
                 f"\tInduction: {self.induction}")
 
     async def report(self):
-        debug(3, f" > (( Coupling \t{self.identify()}  \t)) :: [{self.a.origin()}-{self.b.origin()}] \t:  \t{self.induction}")
+        debug(3, f" > Coupling \t{self.identify()}  \t:: [{self.a.origin()}-{self.b.origin()}] \t:  \t{self.induction}")
 
     async def reflect(self):
         self.induction = self.divergence(self.interference())

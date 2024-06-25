@@ -11,7 +11,7 @@ atan2 = lambda x: math.degrees(math.atan2(x[0], x[1]))
 sincos = lambda omega: (math.sin(omega), math.cos(omega))
 
 class Resonator:
-    def __init__(self, threshold=1.0):
+    def __init__(self, threshold=0.0):
         self.omega = 2 * math.pi / SAMPLE_FREQUENCY # This is the acquired frequency, in radians
         self.magnitude = 1.0                        # This is the amplitude of the wave
         self.phase = (0.0, 0.0)                     # This is the phase of the wave, in radians
@@ -34,13 +34,17 @@ class Resonator:
         self.phase = sincos(self.omega)
         self.theta = atan2(self.phase) # This is observed in degrees // WE NEED TO IMPLEMENT +/- to determine the direction of the wave, AND it's offset
 
+    def log(self):
+        print(" > Resonator\t"
+            f"omega::{self.omega:.5f}\t"
+            f"resonance::{self.resonant_frequency:.5f}\t"
+            f"set frequ::{self.set_frequency:.5f}\t"
+            f"reception::{self.reception_level:.5f}\t"
+            f"theta ang::{self.theta:.5f}\t"
+            f"threshold::{self.threshold:.5f}\t")
+
     async def resonate(self):
-        print(" > resonating:\t"
-                f"resonance::{self.resonant_frequency:.5f}\t"
-                f"set frequ::{self.set_frequency:.5f}\t"
-                f"reception::{self.reception_level:.5f}\t"
-                f"theta ang::{self.theta:.5f}\t"
-                f"threshold::{self.threshold:.5f}\t")
+        self.log()
         
         if (self.resonant_frequency == 0.0 and self.set_frequency == 0.0):
             return

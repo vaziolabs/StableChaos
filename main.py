@@ -18,13 +18,16 @@ def main():
     start_time = asyncio.get_event_loop().time()
     screen_size = (1600, 1200)
     grid_size = 2
-    dimensionality = Dimensionality.Planar
+    dimensionality = Dimensionality.Linear
     configuration = Configuration.Adjacency
-    directionality = Directionality.Bidirectional
+    directionality = Directionality.Radio
 
-    engine = TCEngine(screen_size, grid_size, configuration, dimensionality)
+    engine = TCEngine(screen_size, grid_size, configuration, dimensionality, directionality)
     print(f" ~~~~  Tranception dude!  ~~~~~\n\t\t\t - took {asyncio.get_event_loop().time() - start_time:.5f} seconds to initialize.")
-    engine.run(engine.activate)
+
+    engine.activate()
+
+    #engine.run(engine.activate)
 
 if __name__ == '__main__':
     main()
