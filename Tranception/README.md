@@ -53,6 +53,10 @@ The question is, can we use this to represent different models of physical exist
         - [ ] Polar 
         - [ ] Mesh - Complete
         - [ ] Hyper - Everything connected to everything else.
+ - [ ] add the ability to view, or phase step based on the reflection type
+ - [ ] add the ability to integrate filters
+ - [ ] add functionality for audio, electrical and electromagnetic analysis
+ - [ ] integrate a convolution form
  - [ ] integrate a particle like system to represent data tranception between nodes
  - [ ] implement unit tests
  - [ ] implement a dynamic ability to define theta externally

@@ -1,6 +1,6 @@
-from transceiver import Polarity
-from resonator import Resonator
-from debug import debug
+from Tranception import Orientation
+from Tranception.resonator import Resonator
+from Tranception.debug import debug
 
 describe = lambda idx, cartesian: f"Reflector Index: {idx} Cartesian: {cartesian}"
 get3DIndex = lambda x, y, z, dimension_size: z * dimension_size * dimension_size + y * dimension_size + x
@@ -44,29 +44,29 @@ class Reflector(Position, Resonator):
     
     def reflectionType(self, neighbor_cartesians):
         debug(5 ,"\t\t\t\t > Determining Reflection Type")
-        debug(5 ,f"\t\t\t\t\t > Self: {self.origin()}, Neighbor:  {neighbor_cartesians}")
         distance = self.distance(neighbor_cartesians)
-        if distance > 2:
-            return Polarity.OutOfRange
+        debug(5 ,f"\t\t\t\t\t > Self: {self.origin()}, Neighbor:  {neighbor_cartesians} => Distance: {distance}")
 
+        if distance > 2:
+            return Orientation.OutOfRange
         if distance == 0:
-            return Polarity.Self
+            return Orientation.Self
         elif distance <= 1:
-            return Polarity.Orthogonal
+            return Orientation.Orthogonal
         elif distance <= 1.5:
-            return Polarity.Adjacent
+            return Orientation.Adjacent
         else:
-            return Polarity.Polar
+            return Orientation.Polar
         
     def addReflection(self, reflection):
         match reflection.polarity:
-            case Polarity.Self:
+            case Orientation.Self:
                 self.loopback = reflection
-            case Polarity.Orthogonal:
+            case Orientation.Orthogonal:
                 self.addOrthogonal(reflection)
-            case Polarity.Adjacent:
+            case Orientation.Adjacent:
                 self.addAdjacent(reflection)
-            case Polarity.Polar:
+            case Orientation.Polar:
                 self.addPolar(reflection)
 
     def addOrthogonal(self, reflection):

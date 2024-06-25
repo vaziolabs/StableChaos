@@ -1,16 +1,8 @@
-from enum import Enum
-from debug  import debug
+from Tranception import Orientation
+from Tranception.debug  import debug
 
-class Polarity(Enum):
-    Self = 0
-    Orthogonal = 1
-    Adjacent = 2
-    Polar = 3
-    OutOfRange = 4
-    __str__ = lambda self: self.name
-
-# A Reflection signifies a connection between two reflectors
-class Transceiver: 
+# A Coupling signifies a connection between two reflectors
+class Coupling: 
     def __init__(self, idx, a, b, similance): 
         # The ID should always be equivalent to A's ID, but may be unique in higher order dimensions, and will break offsets
         # when wrapping around the grid via toroidal connections
@@ -19,7 +11,7 @@ class Transceiver:
         self.b = b
         self.polarity = similance   # This determines if the reflection is similar or opposite
         self.induction = 0.0        # This determines positive or negative flow
-        print(f"\t\t\t - Transceiver {self.identify()} initialized")
+        print(f"\t\t\t - Coupling {self.identify()} initialized")
 
     # Takes a tuple of id's and returns True if the reflector set contains the id's
     def contains(self, reflector_set):
@@ -27,7 +19,7 @@ class Transceiver:
         return self.a.idx == a_id and self.b.idx == b_id or self.a.idx == b_id and self.b.idx == a_id
 
     def __str__(self):
-        return str(f" > (( Transceiver {self.identify()} \t)): \n\t\tInduction: {self.induction}")
+        return str(f" > (( Coupling {self.identify()} \t)): \n\t\tInduction: {self.induction}")
     
     def __repr__(self):
         return str(self)
@@ -44,7 +36,7 @@ class Transceiver:
                 f"\tInduction: {self.induction}")
 
     async def report(self):
-        debug(3, f" > (( Transceiver \t{self.identify()}  \t)) :: [{self.a.origin()}-{self.b.origin()}] \t:  \t{self.induction}")
+        debug(3, f" > (( Coupling \t{self.identify()}  \t)) :: [{self.a.origin()}-{self.b.origin()}] \t:  \t{self.induction}")
 
     async def reflect(self):
         self.induction = self.divergence(self.interference())
@@ -61,10 +53,10 @@ class Transceiver:
         return self.a.theta + self.b.theta
 
     def divergence(self, interference):
-        if self.polarity == Polarity.Self:
+        if self.polarity == Orientation.Self:
             return 0.0
     
-        if self.polarity == Polarity.Orthogonal:
+        if self.polarity == Orientation.Orthogonal:
             theta_a = self.a.theta
             theta_b = self.b.theta
             if theta_a < theta_b:
@@ -72,9 +64,9 @@ class Transceiver:
             if theta_a > theta_b:
                 return -1.0 * interference
         
-        if self.polarity == Polarity.Adjacent:
+        if self.polarity == Orientation.Adjacent:
             return interference
         
-        if self.polarity == Polarity.Polar:
+        if self.polarity == Orientation.Polar:
             return -1.0 * interference
 
