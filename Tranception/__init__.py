@@ -22,3 +22,9 @@ class Dimensionality(Enum):
     Cubic = 2,          # This is a 3D configuration
     Toroidal = 3,       # This is a Simply Wrapps around the edges
     __str__ = lambda self: self.name
+
+class Directionality(Enum):
+    Forward = 0,        # This allows flow to move to the right
+    Backward = 1,       # This allows flow to move to the left
+    Radio = 2,          # This allows flow to move in all directions
+    __str__ = lambda self: self.name
