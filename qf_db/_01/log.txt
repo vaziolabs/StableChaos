@@ -1,0 +1,72 @@
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG]  > MultipleTreesTest
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [INFO] Forest: My First Forest
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [INFO] Tree: Health
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG] Branch: &{Diet map[] map[]}
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG] Branch: &{Exercise map[] map[]}
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG] Branch: &{Sleep map[] map[]}
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [INFO] Tree: Finance
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG] Branch: &{Budget map[] map[]}
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG] Branch: &{Investing map[] map[]}
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG] Branch: &{Retirement map[] map[]}
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [INFO] Tree: Relationships
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG] Branch: &{Family map[] map[]}
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG] Branch: &{Friends map[] map[]}
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG] Branch: &{Romance map[] map[]}
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [INFO] Tree: Business
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG] Branch: &{Marketing map[] map[]}
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG] Branch: &{Sales map[] map[]}
+2024/06/26 15:02:46 2024-06-26T15:02:46-05:00 [DEBUG] Branch: &{Operations map[] map[]}
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG]  > MultipleTreesTest
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [INFO] Forest: My First Forest
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [INFO] Tree: Relationships
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG] Branch: &{Family map[] map[]}
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG] Branch: &{Friends map[] map[]}
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG] Branch: &{Romance map[] map[]}
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [INFO] Tree: Business
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG] Branch: &{Marketing map[] map[]}
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG] Branch: &{Sales map[] map[]}
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG] Branch: &{Operations map[] map[]}
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [INFO] Tree: Health
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG] Branch: &{Diet map[] map[]}
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG] Branch: &{Exercise map[] map[]}
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG] Branch: &{Sleep map[] map[]}
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [INFO] Tree: Finance
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG] Branch: &{Budget map[] map[]}
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG] Branch: &{Investing map[] map[]}
+2024/06/26 15:02:48 2024-06-26T15:02:48-05:00 [DEBUG] Branch: &{Retirement map[] map[]}
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [TRACE]  > MultipleTreesTest
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [INFO] Forest: My First Forest
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [INFO] Tree: Health
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [DEBUG] Branch: &{Diet map[] map[]}
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [DEBUG] Branch: &{Exercise map[] map[]}
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [DEBUG] Branch: &{Sleep map[] map[]}
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [INFO] Tree: Finance
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [DEBUG] Branch: &{Budget map[] map[]}
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [DEBUG] Branch: &{Investing map[] map[]}
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [DEBUG] Branch: &{Retirement map[] map[]}
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [INFO] Tree: Relationships
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [DEBUG] Branch: &{Family map[] map[]}
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [DEBUG] Branch: &{Friends map[] map[]}
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [DEBUG] Branch: &{Romance map[] map[]}
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [INFO] Tree: Business
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [DEBUG] Branch: &{Marketing map[] map[]}
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [DEBUG] Branch: &{Sales map[] map[]}
+2024/06/26 15:03:00 2024-06-26T15:03:00-05:00 [DEBUG] Branch: &{Operations map[] map[]}
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [TRACE]  > MultipleTreesTest
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [INFO] Forest: My First Forest
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [INFO] Tree: Health
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [DEBUG] Branch: &{Diet map[] map[]}
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [DEBUG] Branch: &{Exercise map[] map[]}
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [DEBUG] Branch: &{Sleep map[] map[]}
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [INFO] Tree: Finance
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [DEBUG] Branch: &{Budget map[] map[]}
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [DEBUG] Branch: &{Investing map[] map[]}
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [DEBUG] Branch: &{Retirement map[] map[]}
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [INFO] Tree: Relationships
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [DEBUG] Branch: &{Family map[] map[]}
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [DEBUG] Branch: &{Friends map[] map[]}
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [DEBUG] Branch: &{Romance map[] map[]}
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [INFO] Tree: Business
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [DEBUG] Branch: &{Marketing map[] map[]}
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [DEBUG] Branch: &{Sales map[] map[]}
+2024/06/26 15:03:01 2024-06-26T15:03:01-05:00 [DEBUG] Branch: &{Operations map[] map[]}
