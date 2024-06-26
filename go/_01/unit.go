@@ -12,6 +12,7 @@ type Unit struct {
 	Name string
 	Value interface{}
 	Hash string
+	Size int
 }
 
 func NewUnit(name string, value interface{}) *Unit {
@@ -40,7 +41,7 @@ func (u *Unit) Compress() ([]byte, error) {
 	if err := zw.Close(); err != nil {
 		return nil, err
 	}
-
+	u.Size = len(buf.Bytes())
 	return buf.Bytes(), nil
 }
 
