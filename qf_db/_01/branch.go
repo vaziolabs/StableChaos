@@ -1,22 +1,23 @@
 package _01
 
 import (
+	"engine"
 	"fmt"
 )
 
 type Branch struct {
-	Name string `json:"name"` 	// equivalent to the name of a table in a database
-	Next map[string]*Branch 	// These are Forks in the branch
-	Flower map[string]*Flower 	// These are the leaves in the branch
+	Name   string             `json:"name"` // equivalent to the name of a table in a database
+	Next   map[string]*Branch // These are Forks in the branch
+	Flower map[string]*Flower // These are the leaves in the branch
 }
 
 func (b *Branch) PrintAll() {
-	fmt.Println(b.Name)
+	engine.Log(engine.DebugLevel, "Branch: %v", b)
 	for _, branch := range b.Next {
 		branch.PrintAll()
 	}
 	for _, flower := range b.Flower {
-		fmt.Println(flower.Name)
+		engine.Log(engine.DebugLevel, "Flower: %v", flower)
 	}
 }
 
@@ -92,8 +93,8 @@ func (b *Branch) GetFlower(name string) *Flower {
 
 func NewBranch(name string) *Branch {
 	return &Branch{
-		Name: name,
-		Next: make(map[string]*Branch),
+		Name:   name,
+		Next:   make(map[string]*Branch),
 		Flower: make(map[string]*Flower),
 	}
 }

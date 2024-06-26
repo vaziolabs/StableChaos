@@ -5,19 +5,28 @@ import (
 	"compress/gzip"
 	"crypto/sha256"
 	"encoding/gob"
+	"engine"
 	"fmt"
 )
 
 type Unit struct {
-	Name string
+	Name  string
 	Value interface{}
-	Hash string
-	Size int
+	Hash  string
+	Size  int
+}
+
+func (u *Unit) Log() {
+	engine.Log(engine.DebugLevel, "Unit:")
+	engine.Log(engine.DebugLevel, "\tName: %s", u.Name)
+	engine.Log(engine.DebugLevel, "\tValue: %v", u.Value)
+	engine.Log(engine.DebugLevel, "\tHash: %s", u.Hash)
+	engine.Log(engine.DebugLevel, "\tSize: %d", u.Size)
 }
 
 func NewUnit(name string, value interface{}) *Unit {
 	return &Unit{
-		Name: name,
+		Name:  name,
 		Value: value,
 	}
 }

@@ -6,17 +6,13 @@ import (
 	"testing"
 )
 
-engine.InitLogger(engine.Config{
-	Filename:    "../log.txt",
-	MinLogLevel: engine.TraceLevel,
-	ToConsole:   true,
-})
-
 func TestNewBranch(t *testing.T) {
 	b := NewBranch("test")
+
 	if b.Name != "test" {
 		t.Errorf("Expected name to be 'test', got %s", b.Name)
 	}
+
 	engine.Log(engine.DebugLevel, " > NewBranchTest")
 	engine.Log(engine.DebugLevel, "Branch: %v", b)
 	engine.Log(engine.DebugLevel, " ")

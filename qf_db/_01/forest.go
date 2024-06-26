@@ -1,28 +1,42 @@
 package _01
 
 import (
-	"strings"
+	"engine"
 	"errors"
-
+	"strings"
 )
 
+type Tree struct {
+	Name     string             `json:"name"`
+	Branches map[string]*Branch `json:"branches"`
+}
+
+func NewTree(name string) *Tree {
+	return &Tree{
+		Name:     name,
+		Branches: make(map[string]*Branch),
+	}
+}
+
 type Forest struct {
-	Name string "json:'name'" 		// equivalent to the name of a database
-	Trees map[string][]Branch 	// equivalent to a table in a database
+	Name  string           `json:"name"`  // equivalent to the name of a database
+	Trees map[string]*Tree `json:"trees"` // equivalent to a lookup table in a database
 }
 
 func NewForest(name string) *Forest {
 	return &Forest{
-		Name: name,
-		Trees: make(map[string][]Branch),
+		Name:  name,
+		Trees: make(map[string]*Tree),
 	}
 }
 
-func (f *Forest) AddTree(name string) {
-	f.Trees[name] = make([]Branch, 0)
+func (f *Forest) AddTree(name string) *Tree {
+	plant_tree := NewTree(name)
+	f.Trees[name] = plant_tree
+	return plant_tree
 }
 
-func (f *Forest) GetTree(name string) []Branch {
+func (f *Forest) GetTree(name string) *Tree {
 	return f.Trees[name]
 }
 
@@ -30,44 +44,75 @@ func (f *Forest) RemoveTree(name string) {
 	delete(f.Trees, name)
 }
 
-func (f *Forest) AddBranch(name string, b Branch){
-	f.Trees[name] = append(f.Trees[name], b)
+func (f *Forest) PopulateBranches(path string) {
+	paths := strings.Split(path, "::")
+	tree := f.Trees[paths[0]]
+
+	if tree == nil {
+		new_tree := NewTree(paths[0])
+		f.Trees[paths[0]] = new_tree
+		tree = new_tree
+	}
+
+	branches := tree.Branches
+	for i := 1; i < len(paths); i++ {
+		branch_name := paths[i]
+		branch := branches[branch_name]
+
+		if branch == nil {
+			new_branch := NewBranch(branch_name)
+			branches[branch_name] = new_branch
+			branch = new_branch
+		}
+
+		branches = branch.Next
+	}
 }
 
-func (f *Forest) GrowBranch(name string) {
-	f.Trees[name] = append(f.Trees[name], Branch{})
+func (f *Forest) AddBranch(name string, b *Branch) {
+	f.Trees[name].Branches[b.Name] = b
+}
+
+func (f *Forest) GrowBranch(tree_name string, name string) {
+	f.Trees[tree_name].Branches[name] = NewBranch(name)
 }
 
 func (f *Forest) Prune(name string) {
-	f.Trees[name] = make([]Branch, 0)
+	f.Trees[name] = NewTree(name)
 }
 
 func (f *Forest) ClimbBranch(name string, branches string) (*Branch, error) {
 	keys := strings.Split(branches, "::")
-	branch, ok := f.Trees[name]
+	tree, ok := f.Trees[name]
 	var next_branch *Branch
 
 	if !ok {
-		return nil, errors.New("Tree not found")
+		return nil, errors.New("tree not found")
 	}
 
 	for _, key := range keys {
 		found := false
-		for _, b := range branch {
+		for _, b := range tree.Branches {
 			if b.Name == key {
-				next_branch = &b
+				next_branch = b
 				found = true
 				break
 			}
 		}
 		if !found {
-			return nil, errors.New("Branch not found")
+			return nil, errors.New("branch not found")
 		}
 	}
 
 	return next_branch, nil
 }
 
-func (f *Forest) GetBranch(name string) []Branch {
-	return f.Trees[name]
+func (f *Forest) Log() {
+	engine.Log(engine.InfoLevel, "Forest: %s", f.Name)
+	for name, tree := range f.Trees {
+		engine.Log(engine.InfoLevel, "Tree: %s", name)
+		for _, b := range tree.Branches {
+			b.PrintAll()
+		}
+	}
 }

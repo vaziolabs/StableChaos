@@ -7,6 +7,11 @@ All of my ideas, converging into one.
 `py` currently contains [the Stable Chaos]() model, and the [Tranception()]() engine.
 `qf_db` is evolved from the 'forest hypergraph' solution, which sits at the core of the Nexus Network Protocol. It is the potential to be some storage. It's a filesystem manager, if you will. an indexer/hasher
 
+## TODOS:
+ - [ ] Make configurations configurable i.e. 
+     - [ ] maybe I want to lock max_depth, or max_width for number of forks per branch
+     - [ ] definitely want to be able to determine if a flower is the end of a branch, or if flowers can happen in the middle
+
 
 ~ Disclaimer ~
 

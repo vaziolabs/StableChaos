@@ -62,11 +62,18 @@ func newLogger(config Config) (*Logger, error) {
 func Log(level Level, format string, args ...interface{}) {
 	if instance == nil {
 		fmt.Println("Logger not initialized")
-		return
+		err := InitLogger(DefaultConfig)
+
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
 	}
+
 	if level < instance.minLogLevel {
 		return
 	}
+
 	instance.log(level, format, args...)
 }
 

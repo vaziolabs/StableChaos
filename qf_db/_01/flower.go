@@ -1,15 +1,20 @@
 package _01
 
 type Flower struct {
-	Name string "json:'name'" 	// Absolute path to the bucket
-	Units []*Unit 				// List of units in the bucket
-	Flowered bool 				// Whether the bucket has been flowered
+	Name   string  `json:"name"`   // equivalent to the name of a table in a database
+	Units  []*Unit `json:"units"`  // List of units in the bucket
+	Locked bool    `json:"locked"` // This is to prevent any changes to the flower
 }
 
+func (f *Flower) PrintAll() {
+	for _, u := range f.Units {
+		u.Log()
+	}
+}
 
 func (f *Flower) Pedals() []interface{} {
 	values := make([]interface{}, len(f.Units))
-	
+
 	for i, u := range f.Units {
 		values[i] = u.Value
 	}
