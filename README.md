@@ -10,5 +10,9 @@ All of my ideas, converging into one.
 
 ~ Disclaimer ~
 <sub>
-The contents here-in are "opensource" to the extent that anyone can use it, so long as they are not using it to make money. The community can have it, contribute to it, repurpose it how they see fit, but if you take the code in this repository and try to redistribute it, clone it, or simply rebrand it and use it in a product, or even sell it to someone as a service you are offering (MSP's!!) .. the money made from this project belongs to the contributors of this project, along with any intellectual rights.  This is the Ancillary License. It's a common law license. Consider this License distributed with this piece of work a copyright, and publishing agreement, herein, foreto, or forewithsoeverwhich you shall have came, come and plan to go, into all of perpituity, in all of existence, in all of space, in all of time, in every universe and dimension, absolutely. We're serious.
+This Ancillary License grants the open-source community the perpetual right to freely use, modify, and repurpose any application, system, or service(s) herein, with the exemption of any commercial exploitation without prior written agreement. 
+
+Redistribution, cloning, or rebranding of any part of this publication for profit, without the authors agreement, is strictly prohibited. Any financial gains derived from this project belong solely to its contributors, who retain all intellectual property and creative rights. This agreement shall be construed under common law and extends indefinitely across all dimensions and universes. 
+
+This document must accompany all distributed content sourced from this publication. Any use of the contents herein must be appropriately credited and sourced. We appreciate you, but we are also serious. Stealing is not cool, but sharing is.
 </sub>
