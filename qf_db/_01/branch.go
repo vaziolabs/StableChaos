@@ -6,9 +6,10 @@ import (
 )
 
 type Branch struct {
-	Name   string             `json:"name"` // equivalent to the name of a table in a database
-	Next   map[string]*Branch // These are Forks in the branch
-	Flower map[string]*Flower // These are the leaves in the branch
+	Name    string             `json:"name"`  // equivalent to the name of a table in a database
+	Next    map[string]*Branch `json:"forks"` // These are Forks in the branch
+	Parents []*Branch          // These are the branches that lead to this branch
+	Flower  map[string]*Flower `json:"flowers"` // These are the leaves in the branch
 }
 
 func (b *Branch) PrintAll() {
