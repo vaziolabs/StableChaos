@@ -11,11 +11,11 @@ import (
 type Level int
 
 const (
-	TraceLevel Level = iota
-	DebugLevel
-	InfoLevel
-	ErrorLevel
-	FatalLevel
+	TraceLevel Level = iota // 0
+	DebugLevel              // 1
+	InfoLevel               // 2
+	ErrorLevel              // 3
+	FatalLevel              // 4
 )
 
 var (
