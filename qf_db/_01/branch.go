@@ -6,10 +6,11 @@ import (
 )
 
 type Branch struct {
-	Name    string             `json:"name"`  // equivalent to the name of a table in a database
-	Next    map[string]*Branch `json:"forks"` // These are Forks in the branch
-	Parents []*Branch          // These are the branches that lead to this branch
-	Flower  map[string]*Flower `json:"flowers"` // These are the leaves in the branch
+	Name         string              `json:"name"`          // equivalent to the name of a table in a database
+	Next         map[string]*Branch  `json:"forks"`         // These are Forks in the branch
+	Distribution map[string][]string `json:"distributions"` // These are the branches that are distributed from this branch
+	Parents      []*Branch           `json:"parents"`       // These are the branches that lead to this branch
+	Flower       map[string]*Flower  `json:"flowers"`       // These are the leaves in the branch
 }
 
 func (b *Branch) PrintAll() {
@@ -33,8 +34,17 @@ func (b *Branch) Traverse(keys []string) (*Branch, error) {
 	return next.Traverse(keys[1:])
 }
 
-func (b *Branch) AddBranch(branch *Branch) {
+func (b *Branch) GrowBranch(key string) *Branch {
+	new_branch := NewBranch(key)
+	new_branch.Parents = append(new_branch.Parents, b)
+	b.Next[key] = new_branch
+	return new_branch
+}
+
+func (b *Branch) AddBranch(branch *Branch) *Branch {
+	branch.Parents = append(branch.Parents, b)
 	b.Next[branch.Name] = branch
+	return branch
 }
 
 func (b *Branch) GetBranch(name string) (*Branch, error) {
@@ -78,6 +88,16 @@ func (b *Branch) Prune(name string) {
 
 func (b *Branch) RemoveBranch(branch Branch) {
 	delete(b.Next, branch.Name)
+}
+
+func (b *Branch) GrowFlower(name string) *Flower {
+	// Check if the flower already exists
+	if flower, ok := b.Flower[name]; ok {
+		return flower
+	}
+	new_flower := NewFlower(name)
+	b.Flower[name] = new_flower
+	return new_flower
 }
 
 func (b *Branch) AddFlower(flower *Flower) {

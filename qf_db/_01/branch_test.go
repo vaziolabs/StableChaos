@@ -30,6 +30,17 @@ func TestAddBranch(t *testing.T) {
 	Println(" ")
 }
 
+func TestGrowBranch(t *testing.T) {
+	b := NewBranch("test")
+	b.GrowBranch("test2")
+	if b.Next["test2"] == nil {
+		t.Error("Expected branch to be grown")
+	}
+	Println(" > GrowBranchTest")
+	b.PrintAll()
+	Println(" ")
+}
+
 func TestGetBranch(t *testing.T) {
 	b := NewBranch("test")
 	test1 := NewBranch("test1")
