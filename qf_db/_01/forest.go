@@ -44,6 +44,7 @@ func (f *Forest) RemoveTree(name string) {
 	delete(f.Trees, name)
 }
 
+// This will evolve into our query language for the database
 func (f *Forest) PopulateBranches(path string) {
 	paths := strings.Split(path, "::")
 	tree := f.Trees[paths[0]]
@@ -57,6 +58,21 @@ func (f *Forest) PopulateBranches(path string) {
 	branches := tree.Branches
 	for i := 1; i < len(paths); i++ {
 		branch_name := paths[i]
+
+		// We need to check if the branch_name is wrapped in curly braces to indicate forking
+		if strings.Contains(branch_name, "{") && strings.Contains(branch_name, "}") {
+			branch_name = strings.Trim(branch_name, "{}")
+			branch_names := strings.Split(branch_name, ",")
+		
+			for _, name := range branch_names {
+				branch := branches[name]
+
+				if branch == nil {
+					new_branch := NewBranch(name)
+					branches[name] = new_branch
+					branch = new_branch
+				}
+				
 		branch := branches[branch_name]
 
 		if branch == nil {
