@@ -1,16 +1,32 @@
 package _01
 
 import (
-	"engine"
 	"testing"
 )
 
-func TestNewForest(t *testing.T) {
-	f := NewForest("test_forest")
-	if f.Name != "test_forest" {
-		t.Errorf("Expected name to be 'test', got %s", f.Name)
+func TestAbstractForest(t *testing.T) {
+	f, err := NewForest("test_forest").TreeConstructor("simple::nested::branches")
+
+	if err != nil {
+		t.Errorf("Expected no error, got %s", err)
 	}
-	engine.Log(engine.DebugLevel, " > NewForestTest")
-	engine.Log(engine.DebugLevel, "Forest: %v", f)
-	engine.Log(engine.DebugLevel, " ")
+
+	if f.Name != "test_forest" {
+		t.Errorf("Expected name to be 'test_forest', got %s", f.Name)
+	}
+
+	if len(f.Trees) != 1 {
+		t.Errorf("Expected 1 tree, got %d", len(f.Trees))
+	}
+
+	tree := f.GetTree("simple")
+	tree.Log()
+	if tree.Name != "simple" {
+		t.Errorf("Expected name to be 'simple', got %s", tree.Name)
+	}
+
+	if len(tree.Branches) != 1 {
+		t.Errorf("Expected 1 branch, got %d", len(tree.Branches))
+	}
+
 }

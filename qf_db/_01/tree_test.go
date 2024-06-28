@@ -56,8 +56,7 @@ func TestMultipleParents(t *testing.T) {
 	career_tree := forest.GetTree("Career")
 	training_branch := career_tree.GrowBranch("Training")
 
-	workout_routing := NewBranch("Workout Routine")
-	workout_routing.AddParents([]*Branch{fitness_branch, training_branch})
+	workout_routing := NewBranch("Workout Routine").AddParents([]*Branch{fitness_branch, training_branch})
 
 	engine.Log(engine.InfoLevel, "Workout Routine: %v", workout_routing)
 
