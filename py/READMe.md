@@ -34,3 +34,7 @@ The core of this system has multiple components, but a single function.
     - [ ] wave function collapse:
         - [ ] audio theorem ruleset
         - [ ] sample fft analysis for audio generation
+
+
+
+
