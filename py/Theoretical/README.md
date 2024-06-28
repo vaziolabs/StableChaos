@@ -1,13 +1,18 @@
-# Angular Phase
- Represents forward and backwards movement in phases regarding frequency and waveform
-
 # Sine
  Represents implementing Asin(2πft+ϕ)
 
+# Angular Phase
+ Represents forward and backwards movement in phases regarding frequency and waveform
+
+# Superposition
+ To analyze the direction of the resultant wave (superposition of two waves moving in opposite directions), we can calculate the phase velocity and group velocity. These concepts help determine how the wave energy propagates over time. Here’s how we can modify the previous example in Python to include calculations for phase velocity and group velocity:
+
+ - **Wave 1 (`wave1_forward`)**: Represents a sine wave moving forward in time with amplitude \(A_1\), frequency \(f_1\), and phase shift \(\phi_1\).
+ - **Wave 2 (`wave2_backward`)**: Represents a sine wave moving backward in time with parameters \(A_2\), \(f_2\), \(\phi_2\)
+ - **Combined Wave (`combined_wave`)**: Superposition of both waves (`wave1_forward` + `wave2_backward`).
+
 # EMFP
  An Attempting at expressing an abstraction of Electromagnetic Wave Parameters
-
-### Key Formulas and Explanations
 
 1. **Wavelength Calculation:**
     - The wavelength is calculated by dividing the speed of light (\(c\)) by the frequency (\(f\)) of the electromagnetic wave.
