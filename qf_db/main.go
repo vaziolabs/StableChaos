@@ -5,6 +5,9 @@ import (
 	"engine"
 )
 
+// TODO: split each type into it's own submodule
+/////////////////////////////////////////////////
+
 func main() {
 	// We first want to delete the log file if it exists, but we won't want to do this in production
 	engine.NewFile("log.txt")

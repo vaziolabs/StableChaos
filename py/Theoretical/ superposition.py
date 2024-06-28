@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 # Time vector
 t = np.linspace(0, 2*np.pi, 1000)
 

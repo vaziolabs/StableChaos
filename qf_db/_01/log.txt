@@ -74,3 +74,1613 @@
 2024/06/26 23:04:29 2024-06-26T23:04:29-05:00 [DEBUG] Flower: &{test [] false}
 2024/06/26 23:04:34 2024-06-26T23:04:34-05:00 [DEBUG] Branch: &{test map[] map[] [] map[test:0xc000192c90]}
 2024/06/26 23:04:34 2024-06-26T23:04:34-05:00 [DEBUG] Flower: &{test [] false}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Health Tree: &{Health map[Diet:0xc0001323c0 Exercise:0xc000132410 Sleep:0xc000132460]}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [INFO] Finance Tree: &{Finance map[Budget:0xc000132550 Investing:0xc0001325a0 Retirement:0xc0001325f0]}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [INFO] Relationships Tree: &{Relationships map[Family:0xc0001326e0 Friends:0xc000132730]}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [INFO] Business Tree: &{Business map[Marketing:0xc0001327d0 Operations:0xc000132820 Training:0xc000132780]}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [INFO] Sales Branch: &{Sales map[] [] map[] map[] 0xc00013a4f8}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [TRACE]  > MultipleTreesTest
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [INFO] Forest: My First Forest
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [INFO] Tree: Business
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Operations map[] [] map[] map[] 0xc00013a4f8}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Sales map[] [] map[] map[] 0xc00013a4f8}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Training map[] [] map[] map[] 0xc00013a4f8}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Marketing map[] [] map[] map[] 0xc00013a4f8}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [INFO] Tree: Education
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Math map[] [] map[] map[] 0xc00013a540}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Science map[Computer Science:0xc000132b90] [] map[] map[] 0xc00013a540}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Computer Science map[] [0xc000132b40] map[] map[] 0xc00013a540}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Reading map[] [] map[] map[] 0xc00013a540}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Writing map[] [] map[] map[] 0xc00013a540}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [INFO] Tree: Health
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Diet map[] [] map[] map[] 0xc00013a438}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Exercise map[] [] map[] map[] 0xc00013a438}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Sleep map[] [] map[] map[] 0xc00013a438}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [INFO] Tree: Finance
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Budget map[] [] map[] map[] 0xc00013a498}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Investing map[] [] map[] map[] 0xc00013a498}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Retirement map[] [] map[] map[] 0xc00013a498}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Sales map[] [] map[] map[] 0xc00013a498}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [INFO] Tree: Relationships
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Family map[] [] map[] map[] 0xc00013a4c8}
+2024/06/27 18:03:42 2024-06-27T18:03:42-05:00 [DEBUG] Branch: &{Friends map[] [] map[] map[] 0xc00013a4c8}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Health Tree: &{Health map[Diet:0xc000014460 Exercise:0xc0000144b0 Sleep:0xc000014500]}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [INFO] Finance Tree: &{Finance map[Budget:0xc0000145f0 Investing:0xc000014640 Retirement:0xc000014690]}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [INFO] Relationships Tree: &{Relationships map[Family:0xc000014780 Friends:0xc0000147d0]}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [INFO] Business Tree: &{Business map[Marketing:0xc000014870 Operations:0xc0000148c0 Training:0xc000014820]}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [INFO] Sales Branch: &{Sales map[] [] map[] map[] 0xc000010510}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [TRACE]  > MultipleTreesTest
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [INFO] Forest: My First Forest
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [INFO] Tree: Relationships
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Family map[] [] map[] map[] 0xc0000104e0}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Friends map[] [] map[] map[] 0xc0000104e0}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [INFO] Tree: Business
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Training map[] [] map[] map[] 0xc000010510}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Marketing map[] [] map[] map[] 0xc000010510}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Operations map[] [] map[] map[] 0xc000010510}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Sales map[] [] map[] map[] 0xc000010510}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [INFO] Tree: Education
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Reading map[] [] map[] map[] 0xc000010558}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Writing map[] [] map[] map[] 0xc000010558}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Math map[] [] map[] map[] 0xc000010558}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Science map[Computer Science:0xc000014c30] [] map[] map[] 0xc000010558}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Computer Science map[] [0xc000014be0] map[] map[] 0xc000010558}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [INFO] Tree: Health
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Diet map[] [] map[] map[] 0xc000010450}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Exercise map[] [] map[] map[] 0xc000010450}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Sleep map[] [] map[] map[] 0xc000010450}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [INFO] Tree: Finance
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Retirement map[] [] map[] map[] 0xc0000104b0}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Sales map[] [] map[] map[] 0xc0000104b0}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Budget map[] [] map[] map[] 0xc0000104b0}
+2024/06/27 18:03:55 2024-06-27T18:03:55-05:00 [DEBUG] Branch: &{Investing map[] [] map[] map[] 0xc0000104b0}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Health Tree: &{Health map[Diet:0xc000100370 Exercise:0xc0001003c0 Sleep:0xc000100410]}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [INFO] Finance Tree: &{Finance map[Budget:0xc000100500 Investing:0xc000100550 Retirement:0xc0001005a0]}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [INFO] Relationships Tree: &{Relationships map[Family:0xc000100690 Friends:0xc0001006e0]}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [INFO] Business Tree: &{Business map[Marketing:0xc000100780 Operations:0xc0001007d0 Training:0xc000100730]}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [INFO] Sales Branch: &{Sales map[] [] map[] map[] 0xc000010528}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [TRACE]  > MultipleTreesTest
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [INFO] Forest: My First Forest
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [INFO] Tree: Finance
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Budget map[] [] map[] map[] 0xc0000104c8}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Investing map[] [] map[] map[] 0xc0000104c8}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Retirement map[] [] map[] map[] 0xc0000104c8}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Sales map[] [] map[] map[] 0xc0000104c8}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [INFO] Tree: Relationships
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Family map[] [] map[] map[] 0xc0000104f8}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Friends map[] [] map[] map[] 0xc0000104f8}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [INFO] Tree: Business
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Training map[] [] map[] map[] 0xc000010528}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Marketing map[] [] map[] map[] 0xc000010528}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Operations map[] [] map[] map[] 0xc000010528}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Sales map[] [] map[] map[] 0xc000010528}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [INFO] Tree: Education
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Math map[] [] map[] map[] 0xc000010570}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Science map[Computer Science:0xc000100b40] [] map[] map[] 0xc000010570}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Computer Science map[] [0xc000100af0] map[] map[] 0xc000010570}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Reading map[] [] map[] map[] 0xc000010570}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Writing map[] [] map[] map[] 0xc000010570}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [INFO] Tree: Health
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Diet map[] [] map[] map[] 0xc000010468}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Exercise map[] [] map[] map[] 0xc000010468}
+2024/06/27 18:03:57 2024-06-27T18:03:57-05:00 [DEBUG] Branch: &{Sleep map[] [] map[] map[] 0xc000010468}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Health Tree: &{Health map[Diet:0xc000100370 Exercise:0xc0001003c0 Sleep:0xc000100410]}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [INFO] Finance Tree: &{Finance map[Budget:0xc000100500 Investing:0xc000100550 Retirement:0xc0001005a0]}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [INFO] Relationships Tree: &{Relationships map[Family:0xc000100690 Friends:0xc0001006e0]}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [INFO] Business Tree: &{Business map[Marketing:0xc000100780 Operations:0xc0001007d0 Training:0xc000100730]}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [INFO] Sales Branch: &{Sales map[] [] map[] map[] 0xc000010528}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [INFO] Security Branch: &{Security+ map[] [0xc000100b40 0xc000100730] map[] map[] <nil>}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [TRACE]  > MultipleTreesTest
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [INFO] Forest: My First Forest
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [INFO] Tree: Health
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Diet map[] [] map[] map[] 0xc000010468}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Exercise map[] [] map[] map[] 0xc000010468}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Sleep map[] [] map[] map[] 0xc000010468}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [INFO] Tree: Finance
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Budget map[] [] map[] map[] 0xc0000104c8}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Investing map[] [] map[] map[] 0xc0000104c8}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Retirement map[] [] map[] map[] 0xc0000104c8}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Sales map[] [] map[] map[] 0xc0000104c8}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [INFO] Tree: Relationships
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Family map[] [] map[] map[] 0xc0000104f8}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Friends map[] [] map[] map[] 0xc0000104f8}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [INFO] Tree: Business
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Training map[] [] map[] map[] 0xc000010528}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Marketing map[] [] map[] map[] 0xc000010528}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Operations map[] [] map[] map[] 0xc000010528}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Sales map[] [] map[] map[] 0xc000010528}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [INFO] Tree: Education
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Reading map[] [] map[] map[] 0xc000010570}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Writing map[] [] map[] map[] 0xc000010570}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Math map[] [] map[] map[] 0xc000010570}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Science map[Computer Science:0xc000100b40] [] map[] map[] 0xc000010570}
+2024/06/27 18:04:28 2024-06-27T18:04:28-05:00 [DEBUG] Branch: &{Computer Science map[] [0xc000100af0] map[] map[] 0xc000010570}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [INFO] Tree: Health
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Sleep map[] [] map[] map[] 0xc000010468}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Diet map[] [] map[] map[] 0xc000010468}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Exercise map[] [] map[] map[] 0xc000010468}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [INFO] Finance Tree: &{Finance map[Budget:0xc000100550 Investing:0xc0001005a0 Retirement:0xc0001005f0]}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [INFO] Relationships Tree: &{Relationships map[Family:0xc0001006e0 Friends:0xc000100730]}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [INFO] Business Tree: &{Business map[Marketing:0xc0001007d0 Operations:0xc000100820 Training:0xc000100780]}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [INFO] Sales Branch: &{Sales map[] [] map[] map[] 0xc000010558}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [INFO] Security Branch: &{Security+ map[] [0xc000100b90 0xc000100780] map[] map[] <nil>}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [TRACE]  > MultipleTreesTest
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [INFO] Forest: My First Forest
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [INFO] Tree: Health
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Exercise map[] [] map[] map[] 0xc000010468}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Sleep map[] [] map[] map[] 0xc000010468}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Diet map[] [] map[] map[] 0xc000010468}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [INFO] Tree: Finance
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Budget map[] [] map[] map[] 0xc0000104f8}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Investing map[] [] map[] map[] 0xc0000104f8}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Retirement map[] [] map[] map[] 0xc0000104f8}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Sales map[] [] map[] map[] 0xc0000104f8}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [INFO] Tree: Relationships
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Family map[] [] map[] map[] 0xc000010528}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Friends map[] [] map[] map[] 0xc000010528}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [INFO] Tree: Business
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Training map[] [] map[] map[] 0xc000010558}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Marketing map[] [] map[] map[] 0xc000010558}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Operations map[] [] map[] map[] 0xc000010558}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Sales map[] [] map[] map[] 0xc000010558}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [INFO] Tree: Education
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Writing map[] [] map[] map[] 0xc0000105a0}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Math map[] [] map[] map[] 0xc0000105a0}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Science map[Computer Science:0xc000100b90] [] map[] map[] 0xc0000105a0}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Computer Science map[] [0xc000100b40] map[] map[] 0xc0000105a0}
+2024/06/27 21:23:09 2024-06-27T21:23:09-05:00 [DEBUG] Branch: &{Reading map[] [] map[] map[] 0xc0000105a0}
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [INFO] Tree: Health
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Diet
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Exercise
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Sleep
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [INFO] Finance Tree: &{Finance map[Budget:Branch: Budget Investing:Branch: Investing Retirement:Branch: Retirement]}
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [INFO] Relationships Tree: &{Relationships map[Family:Branch: Family Friends:Branch: Friends]}
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [INFO] Business Tree: &{Business map[Marketing:Branch: Marketing Operations:Branch: Operations Training:Branch: Training]}
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [INFO] Sales Branch: Branch: Sales
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [INFO] Security Branch: Branch: Security+
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [TRACE]  > MultipleTreesTest
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [INFO] Forest: My First Forest
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [INFO] Tree: Health
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Diet
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Exercise
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Sleep
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [INFO] Tree: Finance
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Budget
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Investing
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Retirement
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Sales
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [INFO] Tree: Relationships
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Family
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Friends
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [INFO] Tree: Business
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Training
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Marketing
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Operations
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Sales
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [INFO] Tree: Education
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Reading
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Writing
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Math
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Science
+2024/06/27 21:25:46 2024-06-27T21:25:46-05:00 [DEBUG] Branch: Branch: Computer Science
+2024/06/27 21:27:20 2024-06-27T21:27:20-05:00 [INFO] Tree: Health
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [INFO] Tree: Health
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Diet
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Health
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Exercise
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Health
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Sleep
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Health
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [INFO] Finance Tree: &{Finance map[Budget:{
+	Name: Budget
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Finance
+} Investing:{
+	Name: Investing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Finance
+} Retirement:{
+	Name: Retirement
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Finance
+}]}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [INFO] Relationships Tree: &{Relationships map[Family:{
+	Name: Family
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Relationships
+} Friends:{
+	Name: Friends
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Relationships
+}]}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [INFO] Business Tree: &{Business map[Marketing:{
+	Name: Marketing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Business
+} Operations:{
+	Name: Operations
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Business
+} Training:{
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Business
+}]}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [INFO] Sales Branch: {
+	Name: Sales
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Business
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [INFO] Security Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [TRACE]  > MultipleTreesTest
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [INFO] Forest: My First Forest
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [INFO] Tree: Health
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Diet
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Health
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Exercise
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Health
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Sleep
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Health
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [INFO] Tree: Finance
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Budget
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Finance
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Investing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Finance
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Retirement
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Finance
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Sales
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Finance
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [INFO] Tree: Relationships
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Family
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Relationships
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Friends
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Relationships
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [INFO] Tree: Business
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Business
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Marketing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Business
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Operations
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Business
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Sales
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Business
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [INFO] Tree: Education
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Reading
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Education
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Writing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Education
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Math
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Education
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Science
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [
+		 Computer Science]
+	Flowers(0): [
+	Root: Education
+}
+2024/06/27 21:32:39 2024-06-27T21:32:39-05:00 [DEBUG] Branch: {
+	Name: Computer Science
+	Parents(1): [
+		 Science]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): [
+	Root: Education
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [INFO] Tree: Health
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Diet
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Health
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Exercise
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Health
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Sleep
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Health
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [INFO] Finance Tree: &{Finance map[Budget:{
+	Name: Budget
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Finance
+} Investing:{
+	Name: Investing
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Finance
+} Retirement:{
+	Name: Retirement
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Finance
+}]}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [INFO] Relationships Tree: &{Relationships map[Family:{
+	Name: Family
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Relationships
+} Friends:{
+	Name: Friends
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Relationships
+}]}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [INFO] Business Tree: &{Business map[Marketing:{
+	Name: Marketing
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Business
+} Operations:{
+	Name: Operations
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Business
+} Training:{
+	Name: Training
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Business
+}]}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [INFO] Sales Branch: {
+	Name: Sales
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Business
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [INFO] Security Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [TRACE]  > MultipleTreesTest
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [INFO] Forest: My First Forest
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [INFO] Tree: Business
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Training
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Business
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Marketing
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Business
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Operations
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Business
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Sales
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Business
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [INFO] Tree: Education
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Reading
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Education
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Writing
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Education
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Math
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Education
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Science
+	Parents(0): [
+	Distributions(0): [
+	Next(1): [Computer Science]
+	Flowers(0): [
+	Root: Education
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Computer Science
+	Parents(1): [Science]
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Education
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [INFO] Tree: Health
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Diet
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Health
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Exercise
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Health
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Sleep
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Health
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [INFO] Tree: Finance
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Retirement
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Finance
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Sales
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Finance
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Budget
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Finance
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Investing
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Finance
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [INFO] Tree: Relationships
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Family
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Relationships
+}
+2024/06/27 21:44:56 2024-06-27T21:44:56-05:00 [DEBUG] Branch: {
+	Name: Friends
+	Parents(0): [
+	Distributions(0): [
+	Next(0): [
+	Flowers(0): [
+	Root: Relationships
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [INFO] Tree: Health
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Exercise
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Health
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Sleep
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Health
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Diet
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Health
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [INFO] Finance Tree: &{Finance map[Budget:{
+	Name: Budget
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+} Investing:{
+	Name: Investing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+} Retirement:{
+	Name: Retirement
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+}]}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [INFO] Relationships Tree: &{Relationships map[Family:{
+	Name: Family
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Relationships
+} Friends:{
+	Name: Friends
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Relationships
+}]}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [INFO] Business Tree: &{Business map[Marketing:{
+	Name: Marketing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+} Operations:{
+	Name: Operations
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+} Training:{
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+}]}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [INFO] Sales Branch: {
+	Name: Sales
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [INFO] Security Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [TRACE]  > MultipleTreesTest
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [INFO] Forest: My First Forest
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [INFO] Tree: Education
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Reading
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Education
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Writing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Education
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Math
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Education
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Science
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Computer Science]
+	Flowers(0): []
+	Root: Education
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Computer Science
+	Parents(1): [Science]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Education
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [INFO] Tree: Health
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Diet
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Health
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Exercise
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Health
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Sleep
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Health
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [INFO] Tree: Finance
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Budget
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Investing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Retirement
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Sales
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [INFO] Tree: Relationships
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Family
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Relationships
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Friends
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Relationships
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [INFO] Tree: Business
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Marketing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Operations
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+}
+2024/06/27 21:52:31 2024-06-27T21:52:31-05:00 [DEBUG] Branch: {
+	Name: Sales
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [INFO] Tree: Health
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Diet
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Health
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Exercise
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Health
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Sleep
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Health
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [INFO] Finance Tree: &{Finance map[Budget:{
+	Name: Budget
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+} Investing:{
+	Name: Investing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+} Retirement:{
+	Name: Retirement
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+}]}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [INFO] Relationships Tree: &{Relationships map[Family:{
+	Name: Family
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Relationships
+} Friends:{
+	Name: Friends
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Relationships
+}]}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [INFO] Business Tree: &{Business map[Marketing:{
+	Name: Marketing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+} Operations:{
+	Name: Operations
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+} Training:{
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+}]}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [INFO] Sales Branch: {
+	Name: Sales
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [INFO] Security Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [TRACE]  > MultipleTreesTest
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [INFO] Forest: My First Forest
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [INFO] Tree: Business
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Security+]
+	Flowers(0): []
+	Root: Business
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Marketing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Operations
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Sales
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Business
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [INFO] Tree: Education
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Reading
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Education
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Writing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Education
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Math
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Education
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Science
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Computer Science]
+	Flowers(0): []
+	Root: Education
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Computer Science
+	Parents(1): [Science]
+	Distributions(0): []
+	Next(1): [Security+]
+	Flowers(0): []
+	Root: Education
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [INFO] Tree: Health
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Sleep
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Health
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Diet
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Health
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Exercise
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Health
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [INFO] Tree: Finance
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Investing
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Retirement
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Sales
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Budget
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Finance
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [INFO] Tree: Relationships
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Family
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Relationships
+}
+2024/06/27 21:54:28 2024-06-27T21:54:28-05:00 [DEBUG] Branch: {
+	Name: Friends
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Relationships
+}
+2024/06/27 22:00:00 2024-06-27T22:00:00-05:00 [INFO] Workout Routine: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 22:00:00 2024-06-27T22:00:00-05:00 [TRACE]  > MultipleParentsTest
+2024/06/27 22:00:00 2024-06-27T22:00:00-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/27 22:00:00 2024-06-27T22:00:00-05:00 [INFO] Forest: MultipleParents
+2024/06/27 22:00:00 2024-06-27T22:00:00-05:00 [INFO] Tree: Health
+2024/06/27 22:00:00 2024-06-27T22:00:00-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 22:00:00 2024-06-27T22:00:00-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 22:00:00 2024-06-27T22:00:00-05:00 [INFO] Tree: Career
+2024/06/27 22:00:00 2024-06-27T22:00:00-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 22:00:00 2024-06-27T22:00:00-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 22:01:50 2024-06-27T22:01:50-05:00 [INFO] Workout Routine: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 22:01:50 2024-06-27T22:01:50-05:00 [TRACE]  > MultipleParentsTest
+2024/06/27 22:01:50 2024-06-27T22:01:50-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/27 22:01:50 2024-06-27T22:01:50-05:00 [INFO] Forest: MultipleParents
+2024/06/27 22:01:50 2024-06-27T22:01:50-05:00 [INFO] Tree: Health
+2024/06/27 22:01:50 2024-06-27T22:01:50-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 22:01:50 2024-06-27T22:01:50-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 22:01:50 2024-06-27T22:01:50-05:00 [INFO] Tree: Career
+2024/06/27 22:01:50 2024-06-27T22:01:50-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/27 22:01:50 2024-06-27T22:01:50-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/28 03:03:23 2024-06-28T03:03:23-05:00 [INFO] Workout Routine: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/28 03:03:23 2024-06-28T03:03:23-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:03:23 2024-06-28T03:03:23-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:03:23 2024-06-28T03:03:23-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:03:23 2024-06-28T03:03:23-05:00 [INFO] Tree: Health
+2024/06/28 03:03:23 2024-06-28T03:03:23-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/28 03:03:23 2024-06-28T03:03:23-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/28 03:03:23 2024-06-28T03:03:23-05:00 [INFO] Tree: Career
+2024/06/28 03:03:23 2024-06-28T03:03:23-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/28 03:03:23 2024-06-28T03:03:23-05:00 [DEBUG] Branch: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/28 03:05:18 2024-06-28T03:05:18-05:00 [INFO] Workout Routine: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/28 03:05:18 2024-06-28T03:05:18-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:05:18 2024-06-28T03:05:18-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:05:18 2024-06-28T03:05:18-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:05:18 2024-06-28T03:05:18-05:00 [DEBUG] Tree: Health
+2024/06/28 03:05:18 2024-06-28T03:05:18-05:00 [DEBUG] Branch: %!s(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/28 03:05:18 2024-06-28T03:05:18-05:00 [DEBUG] Branch: %!s(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/28 03:05:18 2024-06-28T03:05:18-05:00 [DEBUG] Tree: Career
+2024/06/28 03:05:18 2024-06-28T03:05:18-05:00 [DEBUG] Branch: %!s(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/28 03:05:18 2024-06-28T03:05:18-05:00 [DEBUG] Branch: %!s(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/28 03:05:51 2024-06-28T03:05:51-05:00 [INFO] Workout Routine: %!v(PANIC=String method: runtime error: invalid memory address or nil pointer dereference)
+2024/06/28 03:05:51 2024-06-28T03:05:51-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:05:51 2024-06-28T03:05:51-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:05:51 2024-06-28T03:05:51-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:05:51 2024-06-28T03:05:51-05:00 [DEBUG] Tree: Health
+2024/06/28 03:05:51 2024-06-28T03:05:51-05:00 [DEBUG] Branch: Fitness
+2024/06/28 03:05:51 2024-06-28T03:05:51-05:00 [DEBUG] Branch: Workout Routine
+2024/06/28 03:05:51 2024-06-28T03:05:51-05:00 [DEBUG] Tree: Career
+2024/06/28 03:05:51 2024-06-28T03:05:51-05:00 [DEBUG] Branch: Training
+2024/06/28 03:05:51 2024-06-28T03:05:51-05:00 [DEBUG] Branch: Workout Routine
+2024/06/28 03:08:35 2024-06-28T03:08:35-05:00 [INFO] Workout Routine: {
+	Name: Workout Routine
+	Parents(4): [Fitness, Fitness, TrainingTraining]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:08:35 2024-06-28T03:08:35-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:08:35 2024-06-28T03:08:35-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:08:35 2024-06-28T03:08:35-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:08:35 2024-06-28T03:08:35-05:00 [DEBUG] Tree: Career
+2024/06/28 03:08:35 2024-06-28T03:08:35-05:00 [DEBUG] Branch: Training
+2024/06/28 03:08:35 2024-06-28T03:08:35-05:00 [DEBUG] Branch: Workout Routine
+2024/06/28 03:08:35 2024-06-28T03:08:35-05:00 [DEBUG] Tree: Health
+2024/06/28 03:08:35 2024-06-28T03:08:35-05:00 [DEBUG] Branch: Fitness
+2024/06/28 03:08:35 2024-06-28T03:08:35-05:00 [DEBUG] Branch: Workout Routine
+2024/06/28 03:09:41 2024-06-28T03:09:41-05:00 [INFO] Workout Routine: {
+	Name: Workout Routine
+	Parents(4): [Fitness, Fitness, TrainingTraining]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:09:41 2024-06-28T03:09:41-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:09:41 2024-06-28T03:09:41-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:09:41 2024-06-28T03:09:41-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:09:41 2024-06-28T03:09:41-05:00 [DEBUG] Tree: Health
+2024/06/28 03:09:41 2024-06-28T03:09:41-05:00 [DEBUG] Branch: {
+	Name: Fitness
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Health
+}
+2024/06/28 03:09:41 2024-06-28T03:09:41-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(4): [Fitness, Fitness, TrainingTraining]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:09:41 2024-06-28T03:09:41-05:00 [DEBUG] Tree: Career
+2024/06/28 03:09:41 2024-06-28T03:09:41-05:00 [DEBUG] Branch: {
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:09:41 2024-06-28T03:09:41-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(4): [Fitness, Fitness, TrainingTraining]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:10:42 2024-06-28T03:10:42-05:00 [INFO] Workout Routine: %!v(PANIC=String method: runtime error: index out of range [4] with length 4)
+2024/06/28 03:10:42 2024-06-28T03:10:42-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:10:42 2024-06-28T03:10:42-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:10:42 2024-06-28T03:10:42-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:10:42 2024-06-28T03:10:42-05:00 [DEBUG] Tree: Health
+2024/06/28 03:10:42 2024-06-28T03:10:42-05:00 [DEBUG] Branch: {
+	Name: Fitness
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Health
+}
+2024/06/28 03:11:53 2024-06-28T03:11:53-05:00 [INFO] Workout Routine: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:11:53 2024-06-28T03:11:53-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:11:53 2024-06-28T03:11:53-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:11:53 2024-06-28T03:11:53-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:11:53 2024-06-28T03:11:53-05:00 [DEBUG] Tree: Career
+2024/06/28 03:11:53 2024-06-28T03:11:53-05:00 [DEBUG] Branch: {
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:11:53 2024-06-28T03:11:53-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:11:53 2024-06-28T03:11:53-05:00 [DEBUG] Tree: Health
+2024/06/28 03:11:53 2024-06-28T03:11:53-05:00 [DEBUG] Branch: {
+	Name: Fitness
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Health
+}
+2024/06/28 03:11:53 2024-06-28T03:11:53-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:11:56 2024-06-28T03:11:56-05:00 [INFO] Workout Routine: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:11:56 2024-06-28T03:11:56-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:11:56 2024-06-28T03:11:56-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:11:56 2024-06-28T03:11:56-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:11:56 2024-06-28T03:11:56-05:00 [DEBUG] Tree: Career
+2024/06/28 03:11:56 2024-06-28T03:11:56-05:00 [DEBUG] Branch: {
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:11:56 2024-06-28T03:11:56-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:11:56 2024-06-28T03:11:56-05:00 [DEBUG] Tree: Health
+2024/06/28 03:11:56 2024-06-28T03:11:56-05:00 [DEBUG] Branch: {
+	Name: Fitness
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Health
+}
+2024/06/28 03:11:56 2024-06-28T03:11:56-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:03 2024-06-28T03:12:03-05:00 [INFO] Workout Routine: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:03 2024-06-28T03:12:03-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:12:03 2024-06-28T03:12:03-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:12:03 2024-06-28T03:12:03-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:12:03 2024-06-28T03:12:03-05:00 [DEBUG] Tree: Career
+2024/06/28 03:12:03 2024-06-28T03:12:03-05:00 [DEBUG] Branch: {
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:03 2024-06-28T03:12:03-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:03 2024-06-28T03:12:03-05:00 [DEBUG] Tree: Health
+2024/06/28 03:12:03 2024-06-28T03:12:03-05:00 [DEBUG] Branch: {
+	Name: Fitness
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Health
+}
+2024/06/28 03:12:03 2024-06-28T03:12:03-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:04 2024-06-28T03:12:04-05:00 [INFO] Workout Routine: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:04 2024-06-28T03:12:04-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:12:04 2024-06-28T03:12:04-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:12:04 2024-06-28T03:12:04-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:12:04 2024-06-28T03:12:04-05:00 [DEBUG] Tree: Career
+2024/06/28 03:12:04 2024-06-28T03:12:04-05:00 [DEBUG] Branch: {
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:04 2024-06-28T03:12:04-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:04 2024-06-28T03:12:04-05:00 [DEBUG] Tree: Health
+2024/06/28 03:12:04 2024-06-28T03:12:04-05:00 [DEBUG] Branch: {
+	Name: Fitness
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Health
+}
+2024/06/28 03:12:04 2024-06-28T03:12:04-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:05 2024-06-28T03:12:05-05:00 [INFO] Workout Routine: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:05 2024-06-28T03:12:05-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:12:05 2024-06-28T03:12:05-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:12:05 2024-06-28T03:12:05-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:12:05 2024-06-28T03:12:05-05:00 [DEBUG] Tree: Health
+2024/06/28 03:12:05 2024-06-28T03:12:05-05:00 [DEBUG] Branch: {
+	Name: Fitness
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Health
+}
+2024/06/28 03:12:05 2024-06-28T03:12:05-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:05 2024-06-28T03:12:05-05:00 [DEBUG] Tree: Career
+2024/06/28 03:12:05 2024-06-28T03:12:05-05:00 [DEBUG] Branch: {
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:05 2024-06-28T03:12:05-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:06 2024-06-28T03:12:06-05:00 [INFO] Workout Routine: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:06 2024-06-28T03:12:06-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:12:06 2024-06-28T03:12:06-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:12:06 2024-06-28T03:12:06-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:12:06 2024-06-28T03:12:06-05:00 [DEBUG] Tree: Health
+2024/06/28 03:12:06 2024-06-28T03:12:06-05:00 [DEBUG] Branch: {
+	Name: Fitness
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Health
+}
+2024/06/28 03:12:06 2024-06-28T03:12:06-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:06 2024-06-28T03:12:06-05:00 [DEBUG] Tree: Career
+2024/06/28 03:12:06 2024-06-28T03:12:06-05:00 [DEBUG] Branch: {
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:06 2024-06-28T03:12:06-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:18 2024-06-28T03:12:18-05:00 [INFO] Workout Routine: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:18 2024-06-28T03:12:18-05:00 [TRACE]  > MultipleParentsTest
+2024/06/28 03:12:18 2024-06-28T03:12:18-05:00 [TRACE]  ~~~ Forest ~~~
+2024/06/28 03:12:18 2024-06-28T03:12:18-05:00 [INFO] Forest: MultipleParents
+2024/06/28 03:12:18 2024-06-28T03:12:18-05:00 [DEBUG] Tree: Health
+2024/06/28 03:12:18 2024-06-28T03:12:18-05:00 [DEBUG] Branch: {
+	Name: Fitness
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Health
+}
+2024/06/28 03:12:18 2024-06-28T03:12:18-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:18 2024-06-28T03:12:18-05:00 [DEBUG] Tree: Career
+2024/06/28 03:12:18 2024-06-28T03:12:18-05:00 [DEBUG] Branch: {
+	Name: Training
+	Parents(0): []
+	Distributions(0): []
+	Next(1): [Workout Routine]
+	Flowers(0): []
+	Root: Career
+}
+2024/06/28 03:12:18 2024-06-28T03:12:18-05:00 [DEBUG] Branch: {
+	Name: Workout Routine
+	Parents(2): [Fitness, Training]
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: Career
+}
