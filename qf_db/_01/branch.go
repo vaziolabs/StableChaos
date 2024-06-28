@@ -3,6 +3,7 @@ package _01
 import (
 	"engine"
 	"fmt"
+	"strings"
 )
 
 type Branch struct {
@@ -12,6 +13,80 @@ type Branch struct {
 	Distributions map[string][]string `json:"distributions"` // These are the branches that are distributed from this branch
 	Flower        map[string]*Flower  `json:"flowers"`       // These are the leaves in the branch
 	Root          *Tree               `json:"root"`          // This is the root of the branch
+}
+
+func (*Branch) Prototype() *Branch {
+	b := &Branch{}
+	b.Name = "Prototype"
+	b.Next = make(map[string]*Branch)
+	b.Parents = make([]*Branch, 0)
+	b.Distributions = make(map[string][]string)
+	b.Flower = make(map[string]*Flower)
+	return b
+}
+
+func (b *Branch) Crawl(paths []string) []*Branch {
+	var branches []*Branch
+
+	for _, path := range paths {
+		// Distributions are wrapped by [] and distributions declarations are wrapped in ()
+		d_start := strings.Index(path, "[")
+		d_end := strings.Index(path, "]")
+
+		if d_start > -1 && d_end > -1 {
+			distribution := path[d_start+1 : d_end]
+
+			// If there's a distribution declaration
+			dd_start := strings.Index(distribution, "(")
+			dd_end := strings.Index(distribution, ")")
+
+			if dd_start > -1 && dd_end > -1 {
+				distribution_declaration := distribution[dd_start+1 : dd_end]
+				distributions := strings.Split(distribution_declaration, ",")
+
+				b.AddDistribution(distribution, distributions)
+				branches = append(branches, b.GrowBranch(distribution).Evolve(distributions))
+			} else {
+				if _, ok := b.Next[distribution]; !ok {
+					for distributions := b.GetDistributions(distribution); len(distributions) > 0; {
+						branches = append(branches, b.Next[distribution].Evolve(distributions))
+					}
+				}
+			}
+
+			continue
+		}
+
+		// Forks are wrapped by {} and forks are separated by ,
+		f_start := strings.Index(path, "{")
+		f_end := strings.Index(path, "}")
+
+		if f_start > -1 && f_end > -1 {
+			fork := path[f_start+1 : f_end]
+			forks := strings.Split(fork, ",")
+
+			branches = append(branches, b.Evolve(forks))
+
+			continue
+		}
+
+		// If there's no distribution or fork, then it's just a branch
+		branches = append(branches, b.GrowBranch(path))
+	}
+
+	return branches
+}
+
+// This basically just flattens the tree back down to the root
+func (b *Branch) Evolve(path []string) *Branch {
+	branches := b.Crawl(path) // This takes the paths and creates the branches
+
+	// This adds all of the branches back to the extending root
+	for _, branch := range branches {
+		b.AddBranch(branch)
+	}
+
+	return b
 }
 
 func (b *Branch) String() string {
@@ -127,13 +202,28 @@ func (b *Branch) AddParent(branch *Branch) {
 	branch.AddBranch(b)
 }
 
-func (b *Branch) AddParents(branches []*Branch) {
+func (b *Branch) AddParents(branches []*Branch) *Branch {
 	for _, branch := range branches {
 		b.AddParent(branch)
 	}
+	return b
+}
+
+func (b *Branch) GrowBranches(keys []string) []*Branch {
+	var branches []*Branch
+
+	for _, key := range keys {
+		branches = append(branches, b.GrowBranch(key))
+	}
+
+	return branches
 }
 
 func (b *Branch) GrowBranch(key string) *Branch {
+	if branch, ok := b.Next[key]; ok {
+		return branch
+	}
+
 	new_branch := NewBranch(key)
 	new_branch.Parents = append(new_branch.Parents, b)
 	new_branch.Root = b.Root
@@ -141,7 +231,22 @@ func (b *Branch) GrowBranch(key string) *Branch {
 	return new_branch
 }
 
+func (b *Branch) AddBranches(branches []*Branch) []*Branch {
+	var branches_out []*Branch
+
+	for _, branch := range branches {
+		branches_out = append(branches, b.AddBranch(branch))
+	}
+
+	return branches_out
+}
+
+// Do we want to add support for multiple branches of the same name?
 func (b *Branch) AddBranch(branch *Branch) *Branch {
+	if _, ok := b.Next[branch.Name]; ok {
+		return b.Next[branch.Name]
+	}
+
 	branch.Parents = append(branch.Parents, b)
 	branch.Root = b.Root
 	b.Next[branch.Name] = branch

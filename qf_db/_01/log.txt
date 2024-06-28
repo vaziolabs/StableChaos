@@ -1684,3 +1684,52 @@
 	Flowers(0): []
 	Root: Career
 }
+2024/06/28 06:03:15 2024-06-28T06:03:15-05:00 [INFO] Forest: test_forest
+2024/06/28 06:03:15 2024-06-28T06:03:15-05:00 [DEBUG] Tree: simple
+2024/06/28 06:03:15 2024-06-28T06:03:15-05:00 [DEBUG] Branch: {
+	Name: Prototype
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: simple
+}
+2024/06/28 06:05:03 2024-06-28T06:05:03-05:00 [TRACE]  > GetTree: simple
+2024/06/28 06:05:03 2024-06-28T06:05:03-05:00 [INFO] Forest: test_forest
+2024/06/28 06:05:03 2024-06-28T06:05:03-05:00 [DEBUG] Tree: simple
+2024/06/28 06:05:03 2024-06-28T06:05:03-05:00 [DEBUG] Branch: {
+	Name: Prototype
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: simple
+}
+2024/06/28 06:05:03 2024-06-28T06:05:03-05:00 [TRACE]  > GetTree: simple
+2024/06/28 06:05:32 2024-06-28T06:05:32-05:00 [TRACE]  > GetTree: simple
+2024/06/28 06:05:32 2024-06-28T06:05:32-05:00 [TRACE]  > GetTree: simple
+2024/06/28 06:05:32 2024-06-28T06:05:32-05:00 [DEBUG] Tree: simple
+2024/06/28 06:05:32 2024-06-28T06:05:32-05:00 [DEBUG] Branch: {
+	Name: Prototype
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: simple
+}
+2024/06/28 06:06:51 2024-06-28T06:06:51-05:00 [TRACE]  > GetTree: simple
+2024/06/28 06:06:51 2024-06-28T06:06:51-05:00 [DEBUG]  > Evolution: [nested branches]
+2024/06/28 06:06:51 2024-06-28T06:06:51-05:00 [TRACE]  > GetTree: simple
+2024/06/28 06:06:51 2024-06-28T06:06:51-05:00 [DEBUG] Tree: simple
+2024/06/28 06:06:51 2024-06-28T06:06:51-05:00 [DEBUG] Branch: {
+	Name: Prototype
+	Parents(0): []
+	Distributions(0): []
+	Next(0): []
+	Flowers(0): []
+	Root: simple
+}
+2024/06/28 06:08:58 2024-06-28T06:08:58-05:00 [TRACE]  > GetTree: simple
+2024/06/28 06:08:58 2024-06-28T06:08:58-05:00 [DEBUG]  > Evolution: [nested branches]
+2024/06/28 06:08:58 2024-06-28T06:08:58-05:00 [TRACE]  > GetTree: simple
+2024/06/28 06:08:58 2024-06-28T06:08:58-05:00 [DEBUG] Tree: simple

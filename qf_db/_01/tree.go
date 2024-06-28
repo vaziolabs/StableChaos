@@ -30,9 +30,10 @@ func (tree *Tree) Log() {
 ////////////////
 
 // This will evolve into our query language for the database
-func (tree *Tree) PopulateBranches(path string) *Tree {
-	paths := strings.Split(path, "::")
-	_ = paths
+func (tree *Tree) Evolution(branches []string) *Tree {
+	engine.Log(engine.DebugLevel, " > Evolution: %v", branches)
+	root := new(Branch).Prototype().Evolve(branches)
+	tree.Branches = root.Next
 	return tree
 }
 

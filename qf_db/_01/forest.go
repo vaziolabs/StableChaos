@@ -2,6 +2,8 @@ package _01
 
 import (
 	"engine"
+	"errors"
+	"strings"
 )
 
 type Forest struct {
@@ -23,6 +25,7 @@ func (f *Forest) addTree(name string) *Tree {
 }
 
 func (f *Forest) GetTree(name string) *Tree {
+	engine.Log(engine.TraceLevel, " > GetTree: %s", name)
 	if tree, ok := f.Trees[name]; ok {
 		return tree
 	}
@@ -38,4 +41,32 @@ func (f *Forest) Log() {
 	for _, tree := range f.Trees {
 		tree.Log()
 	}
+}
+
+func (f *Forest) TreeConstructor(absolute_path string) (*Forest, error) {
+	paths := strings.Split(absolute_path, "::")
+
+	// We have to have a safety check here to make sure that the first path is a tree
+	b_start := strings.Index(paths[0], "[")
+	b_end := strings.Index(paths[0], "]")
+
+	if b_start > -1 || b_end > -1 {
+		return f, errors.New("TreeConstructor: Tree's cannot start with a distribution list. Try using forking instead e.g. '{a, b}'")
+	}
+
+	f_start := strings.Index(paths[0], "{")
+	f_end := strings.Index(paths[0], "}")
+
+	if f_start > -1 && f_end > -1 {
+		trees := strings.Split(paths[0][f_start+1:f_end], ",")
+		remaining_paths := paths[1:]
+
+		for _, tree := range trees {
+			f.GetTree(tree).Evolution(remaining_paths)
+		}
+	} else {
+		f.GetTree(paths[0]).Evolution(paths[1:])
+	}
+
+	return f, nil
 }
