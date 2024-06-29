@@ -32,8 +32,29 @@ func (tree *Tree) Log() {
 // This will evolve into our query language for the database
 func (tree *Tree) Evolution(branches []string) *Tree {
 	engine.Log(engine.DebugLevel, " > Evolution: %v", branches)
-	root := new(Branch).Prototype().Evolve(branches)
-	tree.Branches = root.Next
+
+	start := strings.Index(branches[0], "[")
+	end := strings.Index(branches[0], "]")
+
+	if start > -1 || end > -1 {
+		engine.Log(engine.ErrorLevel, "Evolution: Tree's cannot start with a distribution list. Try using forking instead e.g. '{a, b}'")
+		return tree
+	}
+
+	start = strings.Index(branches[0], "{")
+	end = strings.Index(branches[0], "}")
+
+	if start > -1 && end > -1 {
+		engine.Log(engine.DebugLevel, " > Evolution: Forking")
+		forks := strings.Split(branches[0][start+1:end], ",")
+
+		for _, fork := range forks {
+			tree.GrowBranch(fork).Evolve(branches)
+		}
+	} else {
+		tree.GrowBranch(branches[0]).Evolve(branches)
+	}
+
 	return tree
 }
 

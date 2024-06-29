@@ -80,10 +80,12 @@ func (b *Branch) Crawl(paths []string) []*Branch {
 // This basically just flattens the tree back down to the root
 func (b *Branch) Evolve(path []string) *Branch {
 	branches := b.Crawl(path) // This takes the paths and creates the branches
+	current_branch := b
 
 	// This adds all of the branches back to the extending root
 	for _, branch := range branches {
-		b.AddBranch(branch)
+		current_branch.AddBranch(branch)
+		current_branch = branch
 	}
 
 	return b
