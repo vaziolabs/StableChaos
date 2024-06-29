@@ -8,17 +8,17 @@ import (
 
 type Branch struct {
 	Name          string              `json:"name"`          // equivalent to the name of a table in a database
-	Next          map[string]*Branch  `json:"forks"`         // These are Forks in the branch
+	Branches      map[string]*Branch  `json:"forks"`         // These are Forks in the branch
 	Parents       []*Branch           `json:"parents"`       // These are the branches that lead to this branch
 	Distributions map[string][]string `json:"distributions"` // These are the branches that are distributed from this branch
 	Flower        map[string]*Flower  `json:"flowers"`       // These are the leaves in the branch
-	Root          *Tree               `json:"root"`          // This is the root of the branch
+	Root          *Branch             `json:"root"`          // This is the root of the branch
 }
 
 func (*Branch) Prototype() *Branch {
 	b := &Branch{}
 	b.Name = "Prototype"
-	b.Next = make(map[string]*Branch)
+	b.Branches = make(map[string]*Branch)
 	b.Parents = make([]*Branch, 0)
 	b.Distributions = make(map[string][]string)
 	b.Flower = make(map[string]*Flower)
@@ -28,7 +28,7 @@ func (*Branch) Prototype() *Branch {
 func (b *Branch) Crawl(paths []string) []*Branch {
 	var branches []*Branch
 
-	for _, path := range paths {
+	for i, path := range paths {
 		// Distributions are wrapped by [] and distributions declarations are wrapped in ()
 		d_start := strings.Index(path, "[")
 		d_end := strings.Index(path, "]")
@@ -47,9 +47,9 @@ func (b *Branch) Crawl(paths []string) []*Branch {
 				b.AddDistribution(distribution, distributions)
 				branches = append(branches, b.GrowBranch(distribution).Evolve(distributions))
 			} else {
-				if _, ok := b.Next[distribution]; !ok {
+				if _, ok := b.Branches[distribution]; !ok {
 					for distributions := b.GetDistributions(distribution); len(distributions) > 0; {
-						branches = append(branches, b.Next[distribution].Evolve(distributions))
+						branches = append(branches, b.Branches[distribution].Evolve(distributions))
 					}
 				}
 			}
@@ -65,8 +65,18 @@ func (b *Branch) Crawl(paths []string) []*Branch {
 			fork := path[f_start+1 : f_end]
 			forks := strings.Split(fork, ",")
 
-			branches = append(branches, b.Evolve(forks))
+			// If there are more paths, then we need to fork the branches again
+			if remaining_paths := paths[i+1:]; len(remaining_paths) > 0 {
+				for _, fork := range forks {
+					branches = append(branches, b.GrowBranch(fork).Evolve(remaining_paths))
+				}
+				continue
+			}
 
+			// If this is the last path, then we just grow the branches
+			for _, fork := range forks {
+				branches = append(branches, b.GrowBranch(fork))
+			}
 			continue
 		}
 
@@ -116,9 +126,9 @@ func (b *Branch) String() string {
 	print_str += "]"
 
 	i = 0
-	i_length = len(b.Next)
-	print_str += fmt.Sprintf("\n\tNext(%d): [", len(b.Next))
-	for _, branch := range b.Next {
+	i_length = len(b.Branches)
+	print_str += fmt.Sprintf("\n\tBranches(%d): [", len(b.Branches))
+	for _, branch := range b.Branches {
 		print_str += branch.Name
 		i++
 		if i != i_length {
@@ -145,11 +155,11 @@ func (b *Branch) String() string {
 }
 
 func (b *Branch) FindBranch(name string) (*Branch, error) {
-	if branch, ok := b.Next[name]; ok {
+	if branch, ok := b.Branches[name]; ok {
 		return branch, nil
 	}
 
-	for _, child := range b.Next {
+	for _, child := range b.Branches {
 		if branch, err := child.FindBranch(name); err == nil {
 			return branch, nil
 		}
@@ -161,7 +171,7 @@ func (b *Branch) FindBranch(name string) (*Branch, error) {
 func (b *Branch) PrintAll() {
 	engine.Log(engine.DebugLevel, "Branch: %s", b.String())
 
-	for _, branch := range b.Next {
+	for _, branch := range b.Branches {
 		branch.PrintAll()
 	}
 
@@ -201,6 +211,15 @@ func (b *Branch) AddParent(branch *Branch) {
 	}
 
 	b.Root = branch.Root
+	b.Parents = append(b.Parents, branch)
+
+	// We need to check if the parent already has this branch as a child
+	for _, child := range branch.Branches {
+		if child == b {
+			return
+		}
+	}
+
 	branch.AddBranch(b)
 }
 
@@ -222,14 +241,14 @@ func (b *Branch) GrowBranches(keys []string) []*Branch {
 }
 
 func (b *Branch) GrowBranch(key string) *Branch {
-	if branch, ok := b.Next[key]; ok {
+	if branch, ok := b.Branches[key]; ok {
 		return branch
 	}
 
 	new_branch := NewBranch(key)
 	new_branch.Parents = append(new_branch.Parents, b)
 	new_branch.Root = b.Root
-	b.Next[key] = new_branch
+	b.Branches[key] = new_branch
 	return new_branch
 }
 
@@ -245,18 +264,18 @@ func (b *Branch) AddBranches(branches []*Branch) []*Branch {
 
 // Do we want to add support for multiple branches of the same name?
 func (b *Branch) AddBranch(branch *Branch) *Branch {
-	if _, ok := b.Next[branch.Name]; ok {
-		return b.Next[branch.Name]
+	if _, ok := b.Branches[branch.Name]; ok {
+		return b.Branches[branch.Name]
 	}
 
-	branch.Parents = append(branch.Parents, b)
+	branch.AddParent(b)
 	branch.Root = b.Root
-	b.Next[branch.Name] = branch
+	b.Branches[branch.Name] = branch
 	return branch
 }
 
 func (b *Branch) GetBranch(name string) (*Branch, error) {
-	if branch, ok := b.Next[name]; ok {
+	if branch, ok := b.Branches[name]; ok {
 		return branch, nil
 	}
 	return nil, fmt.Errorf("Branch %s not found", name)
@@ -264,24 +283,24 @@ func (b *Branch) GetBranch(name string) (*Branch, error) {
 
 // This clears the branch and all its children so there's no fragments - Maybe this is a bit too much? I need proof either way
 func (b *Branch) Clear() {
-	for _, branch := range b.Next {
+	for _, branch := range b.Branches {
 		branch.Clear()
-		delete(b.Next, branch.Name)
+		delete(b.Branches, branch.Name)
 	}
 
-	b.Next = make(map[string]*Branch)
+	b.Branches = make(map[string]*Branch)
 	b.Flower = make(map[string]*Flower)
 }
 
 // This actually removes the branch but leaves any potential children
 func (b *Branch) Cut(name string) {
-	b.Next[name].Clear()
-	delete(b.Next, name)
+	b.Branches[name].Clear()
+	delete(b.Branches, name)
 }
 
 // This scrapes all the values off the branch
 func (b *Branch) PruneAll() {
-	for _, branch := range b.Next {
+	for _, branch := range b.Branches {
 		branch.PruneAll()
 	}
 
@@ -291,11 +310,11 @@ func (b *Branch) PruneAll() {
 }
 
 func (b *Branch) Prune(name string) {
-	b.Next[name].PruneAll()
+	b.Branches[name].PruneAll()
 }
 
 func (b *Branch) RemoveBranch(branch Branch) {
-	delete(b.Next, branch.Name)
+	delete(b.Branches, branch.Name)
 }
 
 func (b *Branch) GrowFlower(name string) *Flower {
@@ -322,8 +341,8 @@ func (b *Branch) GetFlower(name string) *Flower {
 
 func NewBranch(name string) *Branch {
 	return &Branch{
-		Name:   name,
-		Next:   make(map[string]*Branch),
-		Flower: make(map[string]*Flower),
+		Name:     name,
+		Branches: make(map[string]*Branch),
+		Flower:   make(map[string]*Flower),
 	}
 }
