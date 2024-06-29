@@ -22,7 +22,7 @@ func TestAddBranch(t *testing.T) {
 	b := NewBranch("test")
 	b.AddBranch(NewBranch("test2"))
 	b.AddBranch(NewBranch("test1"))
-	if b.Next["test2"] == nil {
+	if b.Branches["test2"] == nil {
 		t.Error("Expected branch to be added")
 	}
 	Println(" > AddBranchTest")
@@ -33,7 +33,7 @@ func TestAddBranch(t *testing.T) {
 func TestGrowBranch(t *testing.T) {
 	b := NewBranch("test")
 	b.GrowBranch("test2")
-	if b.Next["test2"] == nil {
+	if b.Branches["test2"] == nil {
 		t.Error("Expected branch to be grown")
 	}
 	Println(" > GrowBranchTest")
@@ -70,7 +70,7 @@ func TestRemoveBranch(t *testing.T) {
 	b.AddBranch(test1)
 	b.AddBranch(test2)
 	test2.AddBranch(nested)
-	if b.Next["test"] != nil {
+	if b.Branches["test"] != nil {
 		t.Error("Expected branch to be removed")
 	}
 	Println(" > RemoveBranchTest")
@@ -87,7 +87,7 @@ func TestCutBranch(t *testing.T) {
 	b.AddBranch(test2)
 	test2.AddBranch(nested)
 	b.Cut("test2")
-	if b.Next["test2"] != nil {
+	if b.Branches["test2"] != nil {
 		t.Error("Expected branch to be pruned")
 	}
 	Println(" > PruneBranchTest")
