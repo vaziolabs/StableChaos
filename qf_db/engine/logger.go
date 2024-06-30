@@ -89,8 +89,10 @@ func (l *Logger) log(level Level, format string, args ...interface{}) {
 		fmt.Println(output)
 	}
 
-	// Log to file
-	l.logger.Println(output)
+	if level >= InfoLevel {
+		// Log to file
+		l.logger.Println(output)
+	}
 
 	if level == FatalLevel {
 		os.Exit(1)
