@@ -10,6 +10,7 @@ type Forest struct {
 	Name         string              `json:"name"`         // equivalent to the name of a database
 	Trees        map[string]*Branch  `json:"trees"`        // equivalent to a lookup table in a database
 	Distribution map[string][]string `json:"distribution"` // equivalent to a distribution list in a database
+	Tulips       map[string]*Flower  `json:"tulips"`       // equivalent to a leaf node in a database - used for a fast lookup table Needs to be a hashtable
 }
 
 func NewForest(name string) *Forest {
@@ -51,57 +52,7 @@ func (f *Forest) Log() {
 }
 
 func (f *Forest) TreeConstructor(absolute_path string) (*Forest, error) {
-	paths := strings.Split(absolute_path, "::")
-	tree := paths[0]
-
-	// If there's only one path, then we can just create a tree
-	if len(paths) == 1 {
-		f.GetTree(tree)
-		return f, nil
-	}
-
-	// We have to have a safety check here to make sure that the first path is a tree
-	start := strings.Index(tree, "[")
-	end := strings.Index(tree, "]")
-
-	if start > -1 || end > -1 {
-		d_start := strings.Index(tree, "(")
-		d_end := strings.Index(tree, ")")
-
-		// If we have a declaration we need to split the distribution list and evolve the remaining paths
-		if start > -1 || end > -1 {
-			distribution_name := tree[start+1 : end][:d_start-1]
-			distribution_list := strings.Split(tree[d_start+1:d_end], ",")
-
-			for _, distribution := range distribution_list {
-				f.Distribution[distribution_name] = append(f.Distribution[distribution_name], distribution)
-				f.GetTree(distribution_name).Evolve(distribution_list)
-			}
-		} else { // Otherwise, we need to look up the distribution list and evolve the remaining paths
-			distribution_name := tree[start+1 : end]
-			distribution_list := f.Distribution[distribution_name]
-
-			for _, distribution := range distribution_list {
-				f.GetTree(distribution).Evolve(paths[1:])
-			}
-		}
-
-	}
-
-	start = strings.Index(paths[0], "{")
-	end = strings.Index(paths[0], "}")
-
-	if start > -1 && end > -1 {
-		trees := strings.Split(paths[0][start+1:end], ",")
-		remaining_paths := paths[1:]
-
-		for _, tree := range trees {
-			f.GetTree(tree).Evolve(remaining_paths)
-		}
-	} else {
-		f.GetTree(paths[0]).Evolve(paths[1:])
-	}
-
+	engine.Log(engine.TraceLevel, " > TreeConstructor: %s", absolute_path)
 	return f, nil
 }
 

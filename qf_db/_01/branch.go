@@ -3,7 +3,6 @@ package _01
 import (
 	"engine"
 	"fmt"
-	"strings"
 )
 
 type Branch struct {
@@ -25,80 +24,11 @@ func (*Branch) Prototype() *Branch {
 	return b
 }
 
-func (b *Branch) Crawl(paths []string) []*Branch {
-	var branches []*Branch
-
-	for i, path := range paths {
-		// Distributions are wrapped by [] and distributions declarations are wrapped in ()
-		d_start := strings.Index(path, "[")
-		d_end := strings.Index(path, "]")
-
-		if d_start > -1 && d_end > -1 {
-			distribution := path[d_start+1 : d_end]
-
-			// If there's a distribution declaration
-			dd_start := strings.Index(distribution, "(")
-			dd_end := strings.Index(distribution, ")")
-
-			if dd_start > -1 && dd_end > -1 {
-				distribution_declaration := distribution[dd_start+1 : dd_end]
-				distributions := strings.Split(distribution_declaration, ",")
-
-				b.AddDistribution(distribution, distributions)
-				branches = append(branches, b.GrowBranch(distribution).Evolve(distributions))
-			} else {
-				if _, ok := b.Branches[distribution]; !ok {
-					for distributions := b.GetDistributions(distribution); len(distributions) > 0; {
-						branches = append(branches, b.Branches[distribution].Evolve(distributions))
-					}
-				}
-			}
-
-			continue
-		}
-
-		// Forks are wrapped by {} and forks are separated by ,
-		f_start := strings.Index(path, "{")
-		f_end := strings.Index(path, "}")
-
-		if f_start > -1 && f_end > -1 {
-			fork := path[f_start+1 : f_end]
-			forks := strings.Split(fork, ",")
-
-			// If there are more paths, then we need to fork the branches again
-			if remaining_paths := paths[i+1:]; len(remaining_paths) > 0 {
-				for _, fork := range forks {
-					branches = append(branches, b.GrowBranch(fork).Evolve(remaining_paths))
-				}
-				continue
-			}
-
-			// If this is the last path, then we just grow the branches
-			for _, fork := range forks {
-				branches = append(branches, b.GrowBranch(fork))
-			}
-			continue
-		}
-
-		// If there's no distribution or fork, then it's just a branch
-		branches = append(branches, b.GrowBranch(path))
-	}
-
-	return branches
-}
-
-// This basically just flattens the tree back down to the root
-func (b *Branch) Evolve(path []string) *Branch {
-	branches := b.Crawl(path) // This takes the paths and creates the branches
-	current_branch := b
-
-	// This adds all of the branches back to the extending root
-	for _, branch := range branches {
-		current_branch.AddBranch(branch)
-		current_branch = branch
-	}
-
-	return b
+func UnwrapAll(path string) ([]*Branch, error) {
+	// Logic needs to move from left to right to unwrap the path because we can have nested branches
+	// Needs to return a tree where [] is a distribution and {} is a fork
+	// Distributions need to have a declaration if they are not already in the distributions map
+	return nil, nil
 }
 
 func (b *Branch) String() string {
