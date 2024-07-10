@@ -19,7 +19,7 @@ func TestUnwrapComplex(t *testing.T) {
 	wrapped := "{fork1,fork2}::{branch1,branch2::[declaration(1,2,3)]}::your_mom"
 	f := NewForest("Complex")
 
-	branches, err := f.(wrapped)
+	branches, err := f.PopulateBranches(wrapped)
 	engine.Log(engine.InfoLevel, "Branches: %v, Error: %v", branches, err)
 
 	if len(branches) != 2 {

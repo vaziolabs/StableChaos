@@ -95,9 +95,11 @@ func (f *Forest) ClimbBranch(branches string) (*Branch, error) {
 }
 
 // Tree Should Exist already AND this should return the branch pointer
-func (f *Forest) PopulateBranches(path string) {
+func (f *Forest) PopulateBranches(path string) ([]*Branch, error) {
 	//f.Distribution[distribution] = branches
 	engine.Log(engine.TraceLevel, " > PopulateBranches: %s", path)
+
+	return nil, nil
 }
 
 func (f *Forest) PlantTree(name string) {

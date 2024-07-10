@@ -6,12 +6,12 @@ import (
 )
 
 func TestUnwrapPath(t *testing.T) {
-	path := "parent::child::grandchild"
-	_, err := UnwrapPath(path)
+	path := "parent::child::{fork1,fork2}::{branch1,branch2::[declaration(1,2,3)]}::your_mom"
+	seed, err := UnwrapPath(path)
 	if err != nil {
 		t.Error("Expected path to be unwrapped")
 	}
 	engine.Log(engine.DebugLevel, " > UnwrapPathTest")
-	engine.Log(engine.DebugLevel, "Path: %v", path)
+	printSeed(seed, 0)
 	engine.Log(engine.DebugLevel, " ")
 }
