@@ -8,6 +8,13 @@ All of my ideas, converging into one.
 `qf_db` is evolved from the 'forest hypergraph' solution, which sits at the core of the Nexus Network Protocol. It is the potential to be some storage. It's a filesystem manager, if you will. an indexer/hasher
 
 ## TODOS:
+ - [ ] Build the 3d renderer for the model e.g. plug in Nova and define a renderer
+   - [ ] Extern: Build Novas Python bindings
+ - [ ] Rebuild this to be as simple as possible, including the stable chaos model
+     - [ ] We need to be able to navigate a 3d grid or image
+     - [ ] We need to be able to save to a wav but process as a workgroup
+ - [ ] Run a simple +/-t where t = 0.1 - 0.001
+
  - [ ] Make configurations configurable i.e. 
      - [ ] maybe I want to lock max_depth, or max_width for number of forks per branch
      - [ ] definitely want to be able to determine if a flower is the end of a branch, or if flowers can happen in the middle
