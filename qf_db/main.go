@@ -34,5 +34,5 @@ func main() {
 	forest.PopulateBranches("finance::{budgeting,investing,saving}")
 	forest.PopulateBranches("relationships::{family,romantic,friends}")
 
-	forest.Log()
+	//forest.Log()
 }

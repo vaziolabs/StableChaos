@@ -17,7 +17,9 @@ func TestUnwrapSimple(t *testing.T) {
 
 func TestUnwrapComplex(t *testing.T) {
 	wrapped := "{fork1,fork2}::{branch1,branch2::[declaration(1,2,3)]}::your_mom"
-	branches, err := UnwrapAll(wrapped)
+	f := NewForest("Complex")
+
+	branches, err := f.(wrapped)
 	engine.Log(engine.InfoLevel, "Branches: %v, Error: %v", branches, err)
 
 	if len(branches) != 2 {
@@ -27,6 +29,11 @@ func TestUnwrapComplex(t *testing.T) {
 	if len(branches[0].Branches) != 2 {
 		t.Errorf("Expected 2 branches, got %d", len(branches[0].Branches))
 	}
+
+	if len(branches[0].Branches["branch1"].Branches) != 1 {
+		t.Errorf("Expected 1 branch, got %d", len(branches[0].Branches["branch1"].Branches))
+	}
+
 }
 
 func TestMultipleTrees(t *testing.T) {

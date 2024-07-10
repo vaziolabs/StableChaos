@@ -59,6 +59,16 @@ func newLogger(config Config) (*Logger, error) {
 	}, nil
 }
 
+func Clear() {
+	if instance != nil {
+		instance.logger.SetOutput(os.Stdout)
+	}
+}
+
+func Break() {
+	println(" ")
+}
+
 func Log(level Level, format string, args ...interface{}) {
 	if instance == nil {
 		fmt.Println("Logger not initialized")

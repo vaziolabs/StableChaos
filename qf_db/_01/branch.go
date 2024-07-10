@@ -277,8 +277,15 @@ func NewBranch(name string) *Branch {
 	}
 }
 
-func (b *Branch) PopulateBranches(branches []string) {
+func (b *Branch) PopulateBranches(path string) {
+	branches, err := UnwrapAll(path)
+
+	if err != nil {
+		engine.Log(engine.ErrorLevel, "Error unwrapping branches: %v", err)
+		return
+	}
+
 	for _, branch := range branches {
-		b.GrowBranch(branch)
+		engine.Log(engine.DebugLevel, "Branch: %v", branch)
 	}
 }
