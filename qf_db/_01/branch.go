@@ -277,9 +277,8 @@ func NewBranch(name string) *Branch {
 	}
 }
 
-func PopulateBranches(forest *Branch, path string) {
-	// Split the path into its components
-	// reassemble nested list as a tree
-
-	// If it's a fork, we need to add the branches as children of the parent branch
+func (b *Branch) PopulateBranches(branches []string) {
+	for _, branch := range branches {
+		b.GrowBranch(branch)
+	}
 }

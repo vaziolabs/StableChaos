@@ -31,9 +31,7 @@ func main() {
 	health.PopulateBranches("health::mental::{meditation,reading}")
 
 	forest.PopulateBranches("education::{reading,writing,math,science}")
-
 	forest.PopulateBranches("finance::{budgeting,investing,saving}")
-
 	forest.PopulateBranches("relationships::{family,romantic,friends}")
 
 	forest.Log()

@@ -93,3 +93,7 @@ func (f *Forest) ClimbBranch(branches string) (*Branch, error) {
 
 	return branch, nil
 }
+
+func (f *Forest) PopulateBranches(distribution string, branches []string) {
+	f.Distribution[distribution] = branches
+}
