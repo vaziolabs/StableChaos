@@ -22,10 +22,9 @@ func main() {
 
 	forest := _01.NewForest("forest")
 	health := forest.GetTree("health")
-	health.PopulateBranches("health::workout::core::situps")
-	health.PopulateBranches("health::workout::lower::{squats,lunges,flutter kicks}")
+	health.PopulateBranches("health::workout::[core({crunches,planks}),lower({squats,lunges}),upper({pushups,pullups})]")
 	health.PopulateBranches("health::workout::cardio::{burpees,jump rope,jumping jacks,mountain climbers,running}")
-	health.PopulateBranches("health::workout::upper::{arms::{pushups,pullups},planks}")
+	health.PopulateBranches("health::workout::[upper({arms::{pushups,pullups},chest::{bench press,flies},back::{rows,deadlifts},shoulders::{presses,shrugs})]")
 	health.PopulateBranches("health::sleep::{nap,night}")
 	health.PopulateBranches("health::hygiene::{brush teeth,shower}")
 	health.PopulateBranches("health::diet::{breakfast,lunch,dinner,snacks}")
