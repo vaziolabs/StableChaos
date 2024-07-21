@@ -4,6 +4,8 @@ This project has grown exponentially more ambitious than ever before.
 
 All of my ideas, converging into one.
 
+ [ .. Read More ](https://github.com/BigStickStudio/StableChaos/blob/main/README2.md)
+
  [the Stable Chaos]() model outlines the relationship between a dipole tranception or connection, and the [Tranception()]() framework outlines the datatype that could be used to build out our framework.
 
 ## TODOS:
