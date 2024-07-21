@@ -1,11 +1,10 @@
-# Nexus Project
+# The Stable chaos Model
 
 This project has grown exponentially more ambitious than ever before.
 
 All of my ideas, converging into one.
 
-`py` currently contains [the Stable Chaos]() model, and the [Tranception()]() engine.
-`qf_db` is evolved from the 'forest hypergraph' solution, which sits at the core of the Nexus Network Protocol. It is the potential to be some storage. It's a filesystem manager, if you will. an indexer/hasher
+ [the Stable Chaos]() model outlines the relationship between a dipole tranception or connection, and the [Tranception()]() framework outlines the datatype that could be used to build out our framework.
 
 ## TODOS:
  - [ ] Build the 3d renderer for the model e.g. plug in Nova and define a renderer
