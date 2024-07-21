@@ -16,7 +16,7 @@ from Tranception.engine import TCEngine
 def main():
     print(" ~~~~  Tranception dude!  ~~~~~")
     start_time = asyncio.get_event_loop().time()
-    screen_size = (1600, 1200)
+    screen_size = (1200, 1200)
     grid_size = 2
     dimensionality = Dimensionality.Linear
     configuration = Configuration.Adjacency

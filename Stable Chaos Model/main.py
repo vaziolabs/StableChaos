@@ -6,7 +6,7 @@ from position import Position
 from engine import Color
 
 # Set the screen size
-SCREEN_WIDTH = 1600
+SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 1200
 
 # Instantiate our nodes

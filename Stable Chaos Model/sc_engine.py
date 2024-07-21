@@ -58,10 +58,10 @@ class SCEngine(Engine):
 
             # We draw a bigger circle to encompass all the nodes
             circle_rad = self.screen_size[0] // 2 if self.screen_size[0] < self.screen_size[1] else self.screen_size[1] // 2.2
-            pygame.draw.circle(self.screen, self.acumen(), (800, 600), circle_rad)
+            pygame.draw.circle(self.screen, self.acumen(), (600, 600), circle_rad)
 
             self.calculateNodeValues()
             self.drawNodes()
 
             pygame.display.flip()
-            self.clock.tick(30)
+            self.clock.tick(15)
