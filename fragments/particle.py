@@ -12,5 +12,5 @@ class Particle:
         self.color = Color.fromState(self.position.state)
         self.position.update(nodes)
 
-    def draw(self, screen, circle_rad):
-        pygame.draw.circle(screen, self.color.val(), self.position.xy, 5)
+    def draw(self, screen):
+        pygame.draw.circle(screen, self.color.val(), self.position, 5)
