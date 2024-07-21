@@ -1,4 +1,4 @@
-# The Stable chaos Model
+# The Stable Chaos Model
 
 This project has grown exponentially more ambitious than ever before.
 
