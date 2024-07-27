@@ -13,11 +13,11 @@ This has the potential to beused to optimize communication reliability in wirele
 ![image](https://github.com/user-attachments/assets/d31b184b-93be-4e72-b213-9fe567ba7f70)
 
 ## 2nd Dimensional Iterations
-A Single Nodes connections
-![image](https://github.com/BigStickStudio/StableChaos/assets/87874714/37af4ce5-b436-48db-8fea-d80c2cfb9262)
-
 Fully Connected (all surrounding reflections)
 ![image](https://github.com/BigStickStudio/StableChaos/assets/87874714/77c2bd0e-bcee-4e17-87ba-9db02cdae66a)
+
+A Single Nodes connections
+![image](https://github.com/BigStickStudio/StableChaos/assets/87874714/37af4ce5-b436-48db-8fea-d80c2cfb9262)
 
 ## 3rd Iteration
 Nodes by iteration
