@@ -9,8 +9,11 @@ This has the potential to beused to optimize communication reliability in wirele
 
  t scale, it could enable large-scale distributed network management, enhances system efficiency, and supports real-world applications such as wireless communications, environmental monitoring, acoustic systems optimization, and quantum network operations.
 
+## 1st Dimension in 3D
+![image](https://github.com/user-attachments/assets/d31b184b-93be-4e72-b213-9fe567ba7f70)
 
-### Model
+## 2nd Dimensional Iterations
+Legend
 ```
 Green - Origin
 Red - Orthogonal
@@ -18,10 +21,6 @@ Green - Adjacent
 Black - Polar
 ```
 
-## 1st Dimension in 3D
-![image](https://github.com/user-attachments/assets/d31b184b-93be-4e72-b213-9fe567ba7f70)
-
-## 2nd Dimensional Iterations
 A Single Nodes connections
 ![image](https://github.com/BigStickStudio/StableChaos/assets/87874714/37af4ce5-b436-48db-8fea-d80c2cfb9262)
 
