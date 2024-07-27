@@ -17,11 +17,34 @@ Red - Orthogonal
 Green - Adjacent
 Black - Polar
 ```
+
+## 1st Dimension in 3D
+![image](https://github.com/user-attachments/assets/d31b184b-93be-4e72-b213-9fe567ba7f70)
+
+## 2nd Dimensional Iterations
 A Single Nodes connections
 ![image](https://github.com/BigStickStudio/StableChaos/assets/87874714/37af4ce5-b436-48db-8fea-d80c2cfb9262)
 
 Fully Connected (all surrounding reflections)
 ![image](https://github.com/BigStickStudio/StableChaos/assets/87874714/77c2bd0e-bcee-4e17-87ba-9db02cdae66a)
+
+## 3rd Iteration
+Nodes by iteration
+![image](https://github.com/user-attachments/assets/d23431f3-5fda-4057-992a-56e1f59dc26f)
+
+Single Di-Pole Iteration
+![image](https://github.com/user-attachments/assets/5a1817fd-0aa1-42f1-8e2e-0f3cdb9d6972)
+
+Dual Di-Pole Connection
+![image](https://github.com/user-attachments/assets/a0c100bc-6e85-4c2c-bfd7-905efe70e514)
+![image](https://github.com/user-attachments/assets/fce30df8-7bf0-44e7-ad56-8252a70a7ebb)
+![image](https://github.com/user-attachments/assets/332a0c74-5c9e-43e1-a83a-e1f6cdff2408)
+
+Full 3D 3rd Iteration
+![image](https://github.com/user-attachments/assets/ce7efe85-3f4a-4a5f-b6f3-e5f08708408d)
+![image](https://github.com/user-attachments/assets/2a9cba50-b3c9-49bf-949d-9defd8c6324a)
+![image](https://github.com/user-attachments/assets/f86d375f-9d77-46c7-9879-d711aee7eea6)
+
 
 ### Overview
 The Tranception Evokation System is designed to simulate and manage cognitive processes through the manipulation of oscillatory phases (theta), frequencies (omega), and resolutions. This system leverages transceivers (reflectors) to receive, process, and transmit information, enhancing communication and interaction within the network.
