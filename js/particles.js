@@ -326,6 +326,9 @@ export default class Particles {
         // Process physics
         this.updateParticles();
         
+        // Process transformations
+        this.transformParticles();
+        
         // Update rendering
         if (this.pointCloudSystem) {
             this.updatePointCloud();
@@ -717,6 +720,112 @@ export default class Particles {
             const colorAttr = this.pointCloudSystem.geometry.attributes.color;
             colorAttr.array = this.colors;
             colorAttr.needsUpdate = true;
+        }
+    }
+
+    transformParticles() {
+        const particleCount = this.positions.length / 3;
+        const transformThreshold = 3.0; // Distance threshold for transformation
+        const transformChance = 0.01; // Probability of transformation per eligible particle
+        
+        // Only process a subset of particles each frame
+        const chunkSize = Math.ceil(particleCount / this.updateEveryNthParticle);
+        const startIdx = (this.frameCount % this.updateEveryNthParticle) * chunkSize;
+        const endIdx = Math.min(startIdx + chunkSize, particleCount);
+        
+        for (let i = startIdx; i < endIdx; i++) {
+            // Skip with probability
+            if (Math.random() > transformChance) continue;
+            
+            const idx = i * 3;
+            const type = this.types[i];
+            const neighbors = this.getNeighborIndices(i);
+            
+            // Count particles by type within threshold
+            const typeCounts = {};
+            let totalNearby = 0;
+            
+            for (const j of neighbors) {
+                if (i === j) continue;
+                
+                const otherIdx = j * 3;
+                
+                // Calculate distance squared
+                const dx = this.positions[otherIdx] - this.positions[idx];
+                const dy = this.positions[otherIdx + 1] - this.positions[idx + 1];
+                const dz = this.positions[otherIdx + 2] - this.positions[idx + 2];
+                const distSq = dx*dx + dy*dy + dz*dz;
+                
+                // If within transformation threshold
+                if (distSq < transformThreshold) {
+                    const otherType = this.types[j];
+                    typeCounts[otherType] = (typeCounts[otherType] || 0) + 1;
+                    totalNearby++;
+                }
+            }
+            
+            // Only transform if enough nearby particles
+            if (totalNearby >= 5) {
+                // Find dominant type
+                let dominantType = type;
+                let maxCount = 0;
+                
+                for (const [neighborType, count] of Object.entries(typeCounts)) {
+                    if (count > maxCount && neighborType !== type) {
+                        maxCount = count;
+                        dominantType = neighborType;
+                    }
+                }
+                
+                // If dominant type is different from current type
+                if (dominantType !== type && maxCount >= 3) {
+                    // Transform this particle
+                    this.transformParticle(i, dominantType);
+                    
+                    // Apply opposite reaction - transform a random particle of dominant type to this type
+                    const eligibleForReverse = neighbors.filter(j => 
+                        this.types[j] === dominantType && 
+                        Math.random() < 0.3 // Only 30% chance of reverse transformation
+                    );
+                    
+                    if (eligibleForReverse.length > 0) {
+                        const reverseIdx = eligibleForReverse[Math.floor(Math.random() * eligibleForReverse.length)];
+                        this.transformParticle(reverseIdx, type);
+                    }
+                }
+            }
+        }
+    }
+
+    transformParticle(index, newType) {
+        // Store previous type for any needed reference
+        const oldType = this.types[index];
+        
+        // Update type
+        this.types[index] = newType;
+        this.typeIndices[index] = newType.charCodeAt(0) - 97;
+        
+        // Update color
+        const idx = index * 3;
+        if (this.controller?.params.particleTypes) {
+            const typeData = this.controller.params.particleTypes[newType];
+            const color = new THREE.Color(typeData.color);
+            this.colors[idx] = color.r;
+            this.colors[idx + 1] = color.g;
+            this.colors[idx + 2] = color.b;
+        } else {
+            const typeIndex = newType.charCodeAt(0) - 97;
+            this.colors[idx] = (typeIndex % 3 === 0) ? 1 : 0.3;
+            this.colors[idx + 1] = (typeIndex % 3 === 1) ? 1 : 0.3;
+            this.colors[idx + 2] = (typeIndex % 3 === 2) ? 1 : 0.3;
+        }
+        
+        // Apply energy boost to transformed particle
+        this.energies[index] = Math.min(this.energies[index] + 0.5, 2.0);
+        
+        // Mark colors as needing update
+        if (this.pointCloudSystem?.geometry?.attributes.color) {
+            this.pointCloudSystem.geometry.attributes.color.needsUpdate = true;
         }
     }
 }
