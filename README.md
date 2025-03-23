@@ -6,7 +6,7 @@ All of my ideas, converging into one.
 
  [ .. Read More ](https://github.com/BigStickStudio/StableChaos/blob/main/README2.md)
 
- [the Stable Chaos]() model outlines the relationship between a dipole tranception or connection, and the [Tranception()]() framework outlines the datatype that could be used to build out our framework.
+ [the Stable Chaos](https://github.com/vaziolabs/StableChaos/tree/main/Stable%20Chaos%20Model) model outlines the relationship between a dipole tranception or connection, and the [Tranception](https://github.com/vaziolabs/StableChaos/tree/main/Tranception) framework outlines the datatype that could be used to build out our framework.
 
 ## TODOS:
  - [ ] Build the 3d renderer for the model e.g. plug in Nova and define a renderer
