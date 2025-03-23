@@ -312,10 +312,13 @@ export default class Particles {
         
         // Update controller data
         if (this.controller?.topical) {
-            const typeMap = this.controller.topical.createTypeRelationshipMap();
+            const typeMatrix = this.controller.params.typeMatrix;
             const particleTypes = this.controller.params.particleTypes;
-            const globalAttraction = this.controller.params.baseAttractions.sameType;
-            this.scene.userData.particles = { typeMap, globalAttraction, particleTypes };
+            const globalAttraction = this.controller.params.globalAttraction;
+            const globalRepulsion = this.controller.params.globalRepulsion;
+            this.scene.userData.particles = { 
+                typeMatrix, particleTypes, globalAttraction, globalRepulsion 
+            };
         }
         
         // Update spatial grid (staggered updates)
@@ -339,7 +342,7 @@ export default class Particles {
     }
     
     updateParticles() {
-        const { typeMap, globalAttraction, particleTypes } = this.scene.userData.particles || {};
+        const { typeMatrix, particleTypes, globalAttraction, globalRepulsion } = this.scene.userData.particles || {};
         const boundaryLimit = 10;
         const particleCount = this.positions.length / 3;
         
@@ -446,27 +449,65 @@ export default class Particles {
                 // Skip particles that are too far away
                 if (distSq > this.maxDistanceSq) continue;
                 
-                // Determine relationship strength
-                let strength = globalAttraction || 0;
                 const otherType = this.types[j];
                 
-                if (typeMap) {
-                    if (type === otherType) {
-                        strength += particleTypes[type].sameTypeBias || 0;
-                    } else {
-                        const relationType = this.getRelationshipType(type, otherType);
-                        strength += particleTypes[type][`${relationType}Bias`] || 0;
-                    }
+                // Get relationship type
+                const relationType = this.getRelationshipType(type, otherType);
+                
+                // Calculate attraction force
+                let attractionStrength = globalAttraction || 0;
+                
+                // Add base attraction for relationship type
+                if (this.controller?.params.baseAttractions) {
+                    attractionStrength += this.controller.params.baseAttractions[relationType] || 0;
                 }
                 
-                // Apply force
+                // Add type-specific bias from particle type settings
+                if (particleTypes && particleTypes[type]) {
+                    attractionStrength += particleTypes[type][`${relationType}Bias`] || 0;
+                }
+                
+                // Add specific type-to-type attraction
+                if (typeMatrix && typeMatrix[type] && typeMatrix[type][otherType]) {
+                    attractionStrength += typeMatrix[type][otherType].attraction || 0;
+                }
+                
+                // Calculate repulsion force
+                let repulsionStrength = globalRepulsion || 0;
+                
+                // Add base repulsion for relationship type
+                if (this.controller?.params.baseRepulsions) {
+                    repulsionStrength += this.controller.params.baseRepulsions[relationType] || 0;
+                }
+                
+                // Add type-specific repulsion from particle type settings
+                if (particleTypes && particleTypes[type]) {
+                    // Note: we don't have specific repulsion bias per type yet, this would need to be added to the model
+                }
+                
+                // Add specific type-to-type repulsion
+                if (typeMatrix && typeMatrix[type] && typeMatrix[type][otherType]) {
+                    repulsionStrength += typeMatrix[type][otherType].repulsion || 0;
+                }
+                
+                // Calculate net force
                 const invDist = 1 / Math.sqrt(distSq);
                 const distanceFactor = 1 / (1 + distSq);
-                const scaledStrength = strength * distanceFactor * 0.05;
                 
-                this.velocities[idx] += dx * invDist * scaledStrength;
-                this.velocities[idx + 1] += dy * invDist * scaledStrength;
-                this.velocities[idx + 2] += dz * invDist * scaledStrength;
+                // Attraction pulls particles together (positive force)
+                const attractionForce = attractionStrength * distanceFactor * 0.05;
+                
+                // Repulsion pushes particles apart (negative force)
+                // Repulsion is stronger at close distances
+                const repulsionForce = repulsionStrength * distanceFactor * 0.1 * (1 / (distSq + 0.1));
+                
+                // Net force (positive = attraction, negative = repulsion)
+                const netForce = attractionForce - repulsionForce;
+                
+                // Apply force
+                this.velocities[idx] += dx * invDist * netForce;
+                this.velocities[idx + 1] += dy * invDist * netForce;
+                this.velocities[idx + 2] += dz * invDist * netForce;
             }
             
             // Speed limit
@@ -687,39 +728,17 @@ export default class Particles {
     }
 
     updateFromController() {
-        if (!this.controller) return;
-        
-        const totalParticles = this.controller.params.particlesPerType * 8;
-        if (totalParticles !== this.positions.length / 3) {
-            console.log("Reinitializing for new particle count:", totalParticles);
-            this.init();
-            return;
-        }
-        
-        if (!this.pointCloudSystem) {
-            console.warn("Point cloud system is null during updateFromController");
-            this.initPointCloudSystem(totalParticles);
-            return;
-        }
-        
-        // Update colors based on controller settings
-        for (let i = 0; i < totalParticles; i++) {
-            const type = this.types[i];
-            if (this.controller.params.particleTypes[type]) {
-                const typeData = this.controller.params.particleTypes[type];
-                const color = new THREE.Color(typeData.color);
-                const idx = i * 3;
-                this.colors[idx] = color.r;
-                this.colors[idx + 1] = color.g;
-                this.colors[idx + 2] = color.b;
-            }
-        }
-        
-        // Update colors in point cloud
-        if (this.pointCloudSystem.geometry && this.pointCloudSystem.geometry.attributes.color) {
-            const colorAttr = this.pointCloudSystem.geometry.attributes.color;
-            colorAttr.array = this.colors;
-            colorAttr.needsUpdate = true;
+        if (this.controller?.params) {
+            // Update particle data from controller
+            const typeMatrix = this.controller.params.typeMatrix;
+            const particleTypes = this.controller.params.particleTypes;
+            const globalAttraction = this.controller.params.globalAttraction;
+            const globalRepulsion = this.controller.params.globalRepulsion;
+            
+            // Store in scene userData for access during physics update
+            this.scene.userData.particles = { 
+                typeMatrix, particleTypes, globalAttraction, globalRepulsion 
+            };
         }
     }
 
